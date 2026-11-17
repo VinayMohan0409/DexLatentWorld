@@ -1,0 +1,141 @@
+{
+ "checkpoint_sha256": "c5ac0d89b0d04668a5907466c60bbf8e2fb4584a5de577474412f51407182f3c",
+ "command": [
+  "python",
+  "scripts/cross_decode.py",
+  "--config",
+  "configs/eval/cross_decode_val.json",
+  "--out",
+  "runs/cross_decode/adaln_s0_k4_val_11x11",
+  "--reuse",
+  "runs/cross_decode/adaln_s0_k4_val_8x8",
+  "--no-amp"
+ ],
+ "dataset": "$LAWM_DATA_ROOT/training_data/h2o_cross_embodiment_pointclouds_heldout",
+ "dataset_fingerprint": "8a8b1ff8403aecf89ba2bffcc67ab29c5c406886a6d57e9c53ea4f3212feb772",
+ "embodiments": {
+  "ability": true,
+  "allegro": true,
+  "dex3": false,
+  "dg5f": false,
+  "inspire": true,
+  "leap": true,
+  "oymotion": true,
+  "shadow_noforearm": true,
+  "svh": false,
+  "wuji": true,
+  "xhand": true
+ },
+ "environment": {
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "driver": "595.91.07",
+  "git_commit": "5a2ccb859b8a9d350bcf4549a91e48db645275c7",
+  "git_diff_sha256": "fe25472a0ec40ea02dedcce5fb927a98afc18600cc0142b0a186b1b7f7aee842",
+  "git_dirty": true,
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "gpus_visible": 1,
+  "node": "<node>",
+  "numerics_env": {
+   "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+   "LAWM_BUILD_LOCK": null,
+   "LAWM_DATA_ROOT": "$LAWM_DATA_ROOT",
+   "NCCL_ALGO": null,
+   "NCCL_PROTO": null,
+   "OMP_NUM_THREADS": null,
+   "PYTHONHASHSEED": null,
+   "SPCONV_ALGO_TIME_LIMIT": null,
+   "SPCONV_DEBUG_SAVE_PATH": null,
+   "TORCH_CUDNN_V8_API_ENABLED": null
+  },
+  "packages": {
+   "cumm-cu124": "0.7.11",
+   "numpy": "1.26.4",
+   "spconv-cu124": "2.3.8",
+   "timm": "1.0.27",
+   "torch": "2.5.1+cu124",
+   "torch-scatter": "2.1.2+pt25cu124"
+  },
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+  "slurm": {}
+ },
+ "eval_config": {
+  "_note": "Cross-decode heatmap on the validation split. Paths without a leading / are relative to the repo (checkpoint, manifest, config) or to LAWM_DATA_ROOT (data_dir). Embodiment names come from configs/embodiments.json; the dataset must contain them (lawm.preprocessing.export_extra_embodiments adds new ones).",
+  "amp": false,
+  "batch_size": 8,
+  "checkpoint": "checkpoints/adaln_s0_k4/best.pt",
+  "data_dir": "training_data/h2o_cross_embodiment_pointclouds_heldout",
+  "determinism": "strict",
+  "embodiments": [
+   "ability",
+   "allegro",
+   "inspire",
+   "leap",
+   "oymotion",
+   "shadow_noforearm",
+   "wuji",
+   "xhand",
+   "svh",
+   "dg5f",
+   "dex3"
+  ],
+  "eval_stream_seed": 10000,
+  "metric": "mover_5mm",
+  "run_manifest": "results/adaln_s0_k4/run_manifest.json",
+  "seed": 0,
+  "split_key": "val",
+  "training_config": "configs/h2o_50pct.json",
+  "windows_per_sequence": 16
+ },
+ "numerics": {
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": true,
+  "deterministic_algorithms": true,
+  "mode": "strict",
+  "tf32_cudnn": true,
+  "tf32_matmul": false,
+  "warn_only": false
+ },
+ "reuse": {
+  "computed_cells": 65,
+  "diagonal_check": {
+   "ability": {
+    "recomputed_mm": 8.417,
+    "stored_mm": 8.413
+   },
+   "allegro": {
+    "recomputed_mm": 9.931,
+    "stored_mm": 9.926
+   },
+   "inspire": {
+    "recomputed_mm": 8.823,
+    "stored_mm": 8.823
+   },
+   "leap": {
+    "recomputed_mm": 10.167,
+    "stored_mm": 10.167
+   },
+   "oymotion": {
+    "recomputed_mm": 9.331,
+    "stored_mm": 9.323
+   },
+   "shadow_noforearm": {
+    "recomputed_mm": 9.216,
+    "stored_mm": 9.217
+   },
+   "wuji": {
+    "recomputed_mm": 9.204,
+    "stored_mm": 9.19
+   },
+   "xhand": {
+    "recomputed_mm": 9.492,
+    "stored_mm": 9.504
+   }
+  },
+  "reused_cells": 64,
+  "source": "runs/cross_decode/adaln_s0_k4_val_8x8"
+ },
+ "seconds": 1759.4,
+ "windows": 256
+}

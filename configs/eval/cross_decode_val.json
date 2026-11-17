@@ -1,0 +1,16 @@
+{
+ "_note": "Cross-decode heatmap on the validation split. Paths without a leading / are relative to the repo (checkpoint, manifest, config) or to LAWM_DATA_ROOT (data_dir). Embodiment names come from configs/embodiments.json; the dataset must contain them (lawm.preprocessing.export_extra_embodiments adds new ones).",
+ "checkpoint": "checkpoints/adaln_s0_k4/best.pt",
+ "run_manifest": "results/adaln_s0_k4/run_manifest.json",
+ "training_config": "configs/h2o_50pct.json",
+ "data_dir": "training_data/h2o_cross_embodiment_pointclouds_heldout",
+ "split_key": "val",
+ "embodiments": ["ability", "allegro", "inspire", "leap", "oymotion", "shadow_noforearm", "wuji", "xhand", "svh", "dg5f", "dex3"],
+ "windows_per_sequence": 16,
+ "seed": 0,
+ "eval_stream_seed": 10000,
+ "batch_size": 8,
+ "amp": true,
+ "determinism": "strict",
+ "metric": "mover_5mm"
+}

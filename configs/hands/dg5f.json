@@ -1,0 +1,124 @@
+{
+ "unidex_hand": "Dg5f",
+ "_note": "Tesollo DG-5F, 5 fingers (1 = thumb .. 5 = little), 20 joints. Licence: BSD-3-Clause. The mounting flange (*_dg_mount, a .dae) is not part of the hand and gets no points. Tips at the far end of each fingertip mesh. Its visual meshes are .dae only, so the collision meshes (STL) are used as visuals.",
+ "source": {
+  "repo": "https://github.com/tesollodelto/dg5f_ros2.git",
+  "commit": "0cb45ae9474caa92410dfa820346da8ffbae8405"
+ },
+ "package_paths": {
+  "package://dg5f_description/": "dg5f_description/"
+ },
+ "drop_visuals": [
+  "rl_dg_mount",
+  "ll_dg_mount"
+ ],
+ "sides": {
+  "right": {
+   "urdf": "dg5f_description/urdf/dg5f_right.urdf",
+   "mesh_root": ".",
+   "add_tips": {
+    "f1_tip": {
+     "parent": "rl_dg_1_tip"
+    },
+    "f2_tip": {
+     "parent": "rl_dg_2_tip"
+    },
+    "f3_tip": {
+     "parent": "rl_dg_3_tip"
+    },
+    "f4_tip": {
+     "parent": "rl_dg_4_tip"
+    },
+    "f5_tip": {
+     "parent": "rl_dg_5_tip"
+    }
+   },
+   "knuckles": {
+    "5": "rl_dg_2_2",
+    "9": "rl_dg_3_2",
+    "13": "rl_dg_4_2",
+    "17": "rl_dg_5_2"
+   }
+  },
+  "left": {
+   "urdf": "dg5f_description/urdf/dg5f_left.urdf",
+   "mesh_root": ".",
+   "add_tips": {
+    "f1_tip": {
+     "parent": "ll_dg_1_tip"
+    },
+    "f2_tip": {
+     "parent": "ll_dg_2_tip"
+    },
+    "f3_tip": {
+     "parent": "ll_dg_3_tip"
+    },
+    "f4_tip": {
+     "parent": "ll_dg_4_tip"
+    },
+    "f5_tip": {
+     "parent": "ll_dg_5_tip"
+    }
+   },
+   "knuckles": {
+    "5": "ll_dg_2_2",
+    "9": "ll_dg_3_2",
+    "13": "ll_dg_4_2",
+    "17": "ll_dg_5_2"
+   }
+  }
+ },
+ "tips": [
+  "f1_tip",
+  "f2_tip",
+  "f3_tip",
+  "f4_tip",
+  "f5_tip"
+ ],
+ "base_joint_origin": {
+  "right": {
+   "xyz": [
+    -0.0696,
+    0.01786,
+    0.03572
+   ],
+   "rpy": [
+    2.80662,
+    -1.22636,
+    0.31651
+   ]
+  },
+  "left": {
+   "xyz": [
+    -0.07374,
+    -0.00116,
+    0.02624
+   ],
+   "rpy": [
+    1.6459,
+    1.24577,
+    1.80716
+   ]
+  }
+ },
+ "visuals_from_collision": true,
+ "calibration": {
+  "sides": {
+   "right": {
+    "tip_error_mm": 9.81,
+    "knuckle_error_mm": 6.91
+   },
+   "left": {
+    "tip_error_mm": 8.5,
+    "knuckle_error_mm": 14.15
+   }
+  },
+  "frames": 16,
+  "sequences": [
+   "subject1/h1/0",
+   "subject1/o1/6",
+   "subject2/o1/0",
+   "subject3/k1/7"
+  ]
+ }
+}

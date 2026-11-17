@@ -1,0 +1,28 @@
+{
+ "_note": "The paper's evaluations (lawm.sim.dexwm.planspace.evaluate) run place with the grasp CEM budget (64 x 4 = 256 candidates) and a single-stage place cost; the cem.place and weights.place entries here are read only by lawm.sim.dexwm.runner.",
+ "manifest": "dexwm_episodes.json",
+ "tasks": ["reach", "grasp", "place"],
+ "seed": 0,
+ "scene_seed": 0,
+ "env": {"arm_kp": 300.0, "arm_damping": 1.0, "finger_kp": 2.0, "finger_kd": 0.05, "control_freq": 10, "cameras": false, "n_hand": 1024, "n_object": 400, "n_table": 2048, "n_distractor": 400},
+ "exec": {"max_step_mm": 60.0, "ori_alpha": 0.5, "raw_steps": 5},
+ "loop": {
+  "reach": {"max_replans": 80, "converge_mm": 10.0, "stall_patience": 15, "stall_tol_mm": 0.05, "sustain_steps": 10},
+  "grasp": {"max_replans": 80, "converge_mm": 10.0, "stall_patience": null, "stall_tol_mm": 0.05, "sustain_steps": 10},
+  "place": {"max_replans": 80, "converge_mm": 10.0, "stall_patience": 15, "stall_tol_mm": 0.05, "sustain_steps": 10}
+ },
+ "gates": {
+  "hover": {"margin_mm": 200.0, "proximity_mm": 50.0, "replan_cap": 40},
+  "secure": {"contact_m": 0.02, "half_angle_deg": 30.0, "min_contact": 30, "sustain_replans": 2, "replan_cap": 40}
+ },
+ "cem": {
+  "reach": {"pop": 64, "iters": 4, "elite_frac": 0.2, "min_std": 0.05, "hold_candidate": true},
+  "grasp": {"pop": 64, "iters": 4, "elite_frac": 0.2, "min_std": 0.05, "hold_candidate": true},
+  "place": {"pop": 128, "iters": 6, "elite_frac": 0.2, "min_std": 0.05, "hold_candidate": true}
+ },
+ "weights": {
+  "reach": {"hand_scale": 1.0, "fingertip": 2.0, "object_still": 1.0, "object_goal": 0.0, "grasp_quality": 0.0, "rigid_attachment": 0.0, "grasp_tight": 0.0},
+  "grasp": {"hand_scale": 1.0, "fingertip": 2.0, "object_still": 0.0, "object_goal": 0.0, "grasp_quality": 0.0, "rigid_attachment": 0.0, "grasp_tight": 0.0},
+  "place": [{"hand_scale": 0.0, "fingertip": 1.0, "object_still": 0.0, "object_goal": 0.0, "grasp_quality": 2.0, "rigid_attachment": 0.0, "grasp_tight": 0.0}, {"hand_scale": 0.0, "fingertip": 1.0, "object_still": 0.0, "object_goal": 2.0, "grasp_quality": 2.0, "rigid_attachment": 1.0, "grasp_tight": 2.0}]
+ }
+}

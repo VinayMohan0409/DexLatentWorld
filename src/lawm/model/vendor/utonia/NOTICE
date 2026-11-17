@@ -1,0 +1,23 @@
+# Vendored: Utonia Point Transformer V3
+
+Source: https://github.com/Pointcept/Utonia, commit `9a13cbfe8d018ac0483abaee6992fee0e4f07b85`. Licence: Apache-2.0 (`LICENSE` here;
+file headers: Copyright (c) Meta Platforms, Inc. and affiliates; "Pointcept detached version", Xiaoyang Wu).
+
+Files are unmodified copies of `utonia/{model,module,structure,utils}.py` and `utonia/serialization/*.py`; `__init__.py` is an empty file (the upstream one imports the whole package).
+Used only as a randomly initialised, encoder-only backbone (`enc_mode=True`); the pretrained weights are never loaded.
+It needs `spconv`, `cumm`, `torch_scatter`, `timm`, `addict`, `huggingface_hub` and `packaging` (the upstream file imports them at the top).
+
+This is not the original PTv3 (Pointcept/PointTransformerV3): it adds 3D rotary position encoding on queries and keys, optional layer scale and grid pooling and unpooling in place of serialized pooling, and has no PDNorm.
+
+SHA-256 of each copied file (compare with the upstream commit to check integrity):
+
+```
+f68484c32773b91a47530570b10acb47b229fdeb2132eb5e313f80901639f9ef model.py
+bb9f455509b233eac2b798df0d8efeefa64124628f493ec15dfa92aecabf3cff module.py
+61e696a46833292d7816d30a7f633d2728dceb5a037e0fb0bb7191a9111f6812 structure.py
+373fb39316bc12f55c002d77ce6b4e1a48b049f47c1baac82f61ada20327be59 utils.py
+e6461b37ccb5dcb24725943271259c4f74dac89d27b22becb97e48ce04c8a9b1 serialization/__init__.py
+27a5b667b969256f37f9457e432fd0f7f396974ba26ef395719cfcdb6e0fef31 serialization/default.py
+4fe3d815f6e8eb67fcf2168b616646837ae0f8fec8b0608e2adfbda4497adee4 serialization/hilbert.py
+a6cfc1db67eda5c653033664df84a789ca639df1a1f4836b20c09ae006fc2379 serialization/z_order.py
+```

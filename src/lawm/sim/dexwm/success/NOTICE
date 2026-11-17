@@ -1,0 +1,13 @@
+# Vendored: DexWM success checks
+
+Source: the DexWM repository (facebookresearch/dexwm), commit `74ccc30a3f390d49445b63ec6f7469805d5bd954`, file `sim_wrappers.py`.
+Licence: CC BY-NC 4.0 (`LICENSE` here; file header: Copyright (c) Meta Platforms, Inc. and affiliates). Non-commercial use only.
+
+`sim_wrappers.py` is an unmodified copy. It is the success definition of DexWM's robot-manipulation benchmark: reach (mean distance of five hand points to the target < 0.15 m), grasp (hand-object distance < 0.20 m and contact),
+place (object within 0.10 m of the target object position). It needs `robosuite` (`robosuite.wrappers.Wrapper`) at import time.
+
+SHA-256 of the copied file (compare with the upstream commit to check integrity):
+
+```
+e90f529e1b79e22346aea72175a469675429029cfb55edaf2c831374139a857d sim_wrappers.py
+```

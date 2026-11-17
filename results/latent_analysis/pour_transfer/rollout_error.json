@@ -1,0 +1,21 @@
+{
+ "sequence": "subject3/k2/1",
+ "frames": [
+  358,
+  478
+ ],
+ "last_frame_error_vs_real_retargeted": {
+  "svh": {
+   "hand_mm": 25.765106201171875,
+   "object_mm": 32.46819305419922
+  },
+  "dg5f": {
+   "hand_mm": 20.94161605834961,
+   "object_mm": 30.254243850708008
+  },
+  "dex3": {
+   "hand_mm": 24.889591217041016,
+   "object_mm": 32.542945861816406
+  }
+ }
+}

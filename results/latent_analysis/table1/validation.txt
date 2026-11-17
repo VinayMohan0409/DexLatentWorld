@@ -1,0 +1,23 @@
+windows: 4000  (original: 4000)
+correct          step1: new   5.5120  orig   5.5153  diff -0.0033  count new 7760453 orig 7760453 OK
+correct          step2: new   7.7688  orig   7.7674  diff +0.0014  count new 9245252 orig 9245252 OK
+correct          step3: new   9.6084  orig   9.6119  diff -0.0036  count new 9969389 orig 9969389 OK
+correct          step4: new  11.2962  orig  11.3067  diff -0.0105  count new 10402311 orig 10402311 OK
+correct          step5: new  12.8893  orig  12.8797  diff +0.0095  count new 10717939 orig 10717939 OK
+zero             step1: new  25.2626  orig  25.2625  diff +0.0001  count new 7760453 orig 7760453 OK
+zero             step2: new  40.0927  orig  40.0949  diff -0.0022  count new 9245252 orig 9245252 OK
+zero             step3: new  52.3120  orig  52.3097  diff +0.0022  count new 9969389 orig 9969389 OK
+zero             step4: new  62.8996  orig  62.8992  diff +0.0004  count new 10402311 orig 10402311 OK
+zero             step5: new  72.3530  orig  72.3558  diff -0.0028  count new 10717939 orig 10717939 OK
+shuffled_across  step1: new  32.9484  orig  32.9421  diff +0.0064  count new 7760453 orig 7760453 OK
+shuffled_across  step2: new  54.9392  orig  54.9314  diff +0.0078  count new 9245252 orig 9245252 OK
+shuffled_across  step3: new  72.3560  orig  72.3511  diff +0.0049  count new 9969389 orig 9969389 OK
+shuffled_across  step4: new  86.3958  orig  86.3782  diff +0.0176  count new 10402311 orig 10402311 OK
+shuffled_across  step5: new  97.8592  orig  97.8347  diff +0.0245  count new 10717939 orig 10717939 OK
+fixed_donor      step1: new  28.9470  orig  28.9826  diff -0.0356  count new 7760453 orig 7760453 OK
+fixed_donor      step2: new  46.5955  orig  46.6382  diff -0.0426  count new 9245252 orig 9245252 OK
+fixed_donor      step3: new  59.6685  orig  59.6746  diff -0.0061  count new 9969389 orig 9969389 OK
+fixed_donor      step4: new  69.7089  orig  69.6934  diff +0.0154  count new 10402311 orig 10402311 OK
+fixed_donor      step5: new  78.7081  orig  78.6804  diff +0.0277  count new 10717939 orig 10717939 OK
+max |diff| mm over 4 conditions x 5 steps: 0.0426
+moving scene points (>=5mm, should be 0): 0

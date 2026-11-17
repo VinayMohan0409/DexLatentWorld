@@ -1,0 +1,138 @@
+{
+ "source": "first 5 train-split demos of combine_demos_19.hdf5 by demo number (utils/split_indices_robocasa_pp.json)",
+ "dexwm_repo": "facebookresearch/dexwm at 74ccc30",
+ "episodes_dir": "stage3/dexwm/tuning",
+ "n_episodes": 5,
+ "episodes": [
+  {
+   "demo": "demo_1368",
+   "shard": "combine_demos_19.hdf5",
+   "n_frames": 133,
+   "state_length": 275,
+   "tasks": {
+    "reach": {
+     "start": 0,
+     "target": 25
+    },
+    "grasp": {
+     "start": 26,
+     "target": 90
+    },
+    "place": {
+     "start": 111,
+     "target": 132
+    }
+   },
+   "sha256": {
+    "states": "a1820b4b5eb7c921b65fe39b646215b2056e71d77c070d244b75d73c6774ef72",
+    "model_file": "0325275e266be5b56e617e31bde13b7d2eb9a8b8be956a96bd70e2bb1845fcb5",
+    "ep_meta": "641177affcb4eb39bcdf3b25f905b801fd080f27815f19a3496db79d9de4ee3d",
+    "waypoints": "40325f5c249823cea84f74d027bdf9294a823f700b7ec8911a3b3e049bbc6b8e"
+   }
+  },
+  {
+   "demo": "demo_1369",
+   "shard": "combine_demos_19.hdf5",
+   "n_frames": 131,
+   "state_length": 275,
+   "tasks": {
+    "reach": {
+     "start": 0,
+     "target": 25
+    },
+    "grasp": {
+     "start": 26,
+     "target": 90
+    },
+    "place": {
+     "start": 111,
+     "target": 130
+    }
+   },
+   "sha256": {
+    "states": "59fc4c9c53bd2a76e58540339f75a6fca95de99085e3ed5ac014cbffe892dcc3",
+    "model_file": "eb0d8ce5878d30798289af64595be50f452818fadc7483ba31f28ff70c93b09b",
+    "ep_meta": "79d5f567747eede6df42b31bbcf04b9f3d5ce6dbdcf272eb72ba8463db16d848",
+    "waypoints": "3de20062557617cdbb5fae9aae6f9da6c7856579f2e6d1f950f8c0718461dd05"
+   }
+  },
+  {
+   "demo": "demo_1370",
+   "shard": "combine_demos_19.hdf5",
+   "n_frames": 187,
+   "state_length": 287,
+   "tasks": {
+    "reach": {
+     "start": 0,
+     "target": 25
+    },
+    "grasp": {
+     "start": 26,
+     "target": 115
+    },
+    "place": {
+     "start": 136,
+     "target": 186
+    }
+   },
+   "sha256": {
+    "states": "877970ff174995dee150dfcad901c1c11de4570019ee5a60166a2edbd5224083",
+    "model_file": "8260bb080d022eaa064460ad307f71954803d19c1c1aeb68b583496da1aa0b67",
+    "ep_meta": "0c5fee09191d2c721c907b86025eb771f9f16f45fbae74797a5a7efed3ccda3c",
+    "waypoints": "eece33129604e7f5b6295c2f8b9de5240d699126ffa6e8e86e5f3b910d581e61"
+   }
+  },
+  {
+   "demo": "demo_1371",
+   "shard": "combine_demos_19.hdf5",
+   "n_frames": 133,
+   "state_length": 283,
+   "tasks": {
+    "reach": {
+     "start": 0,
+     "target": 25
+    },
+    "grasp": {
+     "start": 26,
+     "target": 90
+    },
+    "place": {
+     "start": 111,
+     "target": 132
+    }
+   },
+   "sha256": {
+    "states": "a5eb6bbd1c72851b640effcc14ee2f519715ab3ebeb35352fbf58cf52514a928",
+    "model_file": "b3974692d85f664601a3f5e4058c886a7ddc72fb441a3c49584a2da02d9ec4a6",
+    "ep_meta": "30391b107c4b2f85bd3726956148f5ed0505f0534512eba89b76364b40109fb4",
+    "waypoints": "40325f5c249823cea84f74d027bdf9294a823f700b7ec8911a3b3e049bbc6b8e"
+   }
+  },
+  {
+   "demo": "demo_1372",
+   "shard": "combine_demos_19.hdf5",
+   "n_frames": 288,
+   "state_length": 283,
+   "tasks": {
+    "reach": {
+     "start": 0,
+     "target": 25
+    },
+    "grasp": {
+     "start": 26,
+     "target": 194
+    },
+    "place": {
+     "start": 215,
+     "target": 287
+    }
+   },
+   "sha256": {
+    "states": "a28ae728cffa7fc40438261bd1d9ddf8e4231124dde6f954be2e4df0b00aa960",
+    "model_file": "46632c5aab0fb4018df04cfd12b43d0101d46efe963bc96a76448daba7105e99",
+    "ep_meta": "f17ec9e1486bf6e16557b0c1d583d51c44019cf3fde0da5733afb45e0809fe07",
+    "waypoints": "35924e213d7f8d6c51d20bc70189cbce6225d46a8f24dd691059bde2fd30eab9"
+   }
+  }
+ ]
+}

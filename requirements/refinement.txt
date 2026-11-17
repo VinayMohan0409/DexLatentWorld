@@ -1,0 +1,9 @@
+# Stage 1 contact refinement (CPU, Python 3.11). Also needed: manopth (clone, put on PYTHONPATH) and chumpy==0.70 (pip install --no-build-isolation).
+numpy==1.23.5
+scipy==1.9.3
+torch==2.1.2
+trimesh==4.12.2
+pillow
+opencv-python-headless==4.9.0.80
+matplotlib==3.7.5
+contourpy==1.1.1

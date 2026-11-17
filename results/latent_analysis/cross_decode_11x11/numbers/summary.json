@@ -1,0 +1,56 @@
+{
+ "step1": {
+  "diag_seen": 5.408263519936172,
+  "diag_unseen": 6.015027275134561,
+  "seen_to_seen": 7.690366853393895,
+  "seen_to_unseen": 7.475338944395531,
+  "unseen_to_seen": 7.78020682924286,
+  "unseen_to_unseen": 7.4035720334021216,
+  "gap_mean_offdiag": 2.0736652246260143
+ },
+ "step2": {
+  "diag_seen": 7.614682694357935,
+  "diag_unseen": 8.482764162341457,
+  "seen_to_seen": 11.136872261100487,
+  "seen_to_unseen": 10.822460832247708,
+  "unseen_to_seen": 11.264439117567187,
+  "unseen_to_unseen": 10.704288228079731,
+  "gap_mean_offdiag": 3.2210784942434962
+ },
+ "step3": {
+  "diag_seen": 9.345799398565667,
+  "diag_unseen": 10.394521201736945,
+  "seen_to_seen": 13.848230705158247,
+  "seen_to_unseen": 13.499050037983205,
+  "unseen_to_seen": 13.91194802243131,
+  "unseen_to_unseen": 13.256698289597713,
+  "gap_mean_offdiag": 4.121867952173045
+ },
+ "step4": {
+  "diag_seen": 10.725386518706523,
+  "diag_unseen": 11.910496493162759,
+  "seen_to_seen": 16.10538626557312,
+  "seen_to_unseen": 15.75351156757875,
+  "unseen_to_seen": 16.13769092553962,
+  "unseen_to_unseen": 15.333305459763883,
+  "gap_mean_offdiag": 4.944950065219218
+ },
+ "step5": {
+  "diag_seen": 12.170426082763733,
+  "diag_unseen": 13.530294554617635,
+  "seen_to_seen": 18.286567476594836,
+  "seen_to_unseen": 17.91550389899973,
+  "unseen_to_seen": 18.371581787249134,
+  "unseen_to_unseen": 17.429984426259978,
+  "gap_mean_offdiag": 5.636134713247417
+ },
+ "mean_over_steps": {
+  "diag_seen": 9.052911642866007,
+  "diag_unseen": 10.06662073739867,
+  "seen_to_seen": 13.413484712364118,
+  "seen_to_unseen": 13.093173056240985,
+  "unseen_to_seen": 13.493173336406022,
+  "unseen_to_unseen": 12.825569687420687,
+  "gap_mean_offdiag": 3.9995392899018385
+ }
+}

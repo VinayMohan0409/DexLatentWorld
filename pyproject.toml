@@ -1,0 +1,19 @@
+[project]
+name = "lawm"
+version = "0.0.1"
+requires-python = ">=3.10"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+# Versions of the environment the contact refinement ran in (opencv/matplotlib are the versions tested here).
+# Also needed, and not pip-installable here: manopth (clone it and put it on PYTHONPATH) and chumpy==0.70
+# (install with --no-build-isolation) so manopth can read the MANO pickles.
+contact-refinement = [
+    "numpy==1.23.5", "scipy==1.9.3", "torch==2.1.2", "trimesh==4.12.2", "pillow",
+    "opencv-python-headless==4.9.0.80", "matplotlib==3.7.5", "contourpy==1.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

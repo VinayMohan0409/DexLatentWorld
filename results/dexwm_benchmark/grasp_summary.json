@@ -1,0 +1,464 @@
+{
+ "task": "grasp",
+ "done": 50,
+ "successes": 46,
+ "every_10": [
+  "7/10",
+  "17/20",
+  "27/30",
+  "37/40",
+  "46/50"
+ ],
+ "rows": [
+  {
+   "demo": "demo_133",
+   "success": true,
+   "replans": 49,
+   "stop": "success",
+   "final_error_mm": 158.0,
+   "goal_hand_err_mm": 7.4,
+   "video": "demo_133_grasp.mp4"
+  },
+  {
+   "demo": "demo_606",
+   "success": false,
+   "replans": 80,
+   "stop": "max_replans",
+   "final_error_mm": 360.0,
+   "goal_hand_err_mm": 16.3,
+   "video": "demo_606_grasp.mp4"
+  },
+  {
+   "demo": "demo_1364",
+   "success": false,
+   "replans": 80,
+   "stop": "max_replans",
+   "final_error_mm": 256.4,
+   "goal_hand_err_mm": 13.1,
+   "video": "demo_1364_grasp.mp4"
+  },
+  {
+   "demo": "demo_1208",
+   "success": true,
+   "replans": 30,
+   "stop": "success",
+   "final_error_mm": 133.6,
+   "goal_hand_err_mm": 17.6,
+   "video": "demo_1208_grasp.mp4"
+  },
+  {
+   "demo": "demo_1341",
+   "success": true,
+   "replans": 37,
+   "stop": "success",
+   "final_error_mm": 130.4,
+   "goal_hand_err_mm": 15.9,
+   "video": "demo_1341_grasp.mp4"
+  },
+  {
+   "demo": "demo_1311",
+   "success": true,
+   "replans": 30,
+   "stop": "success",
+   "final_error_mm": 172.7,
+   "goal_hand_err_mm": 20.2,
+   "video": "demo_1311_grasp.mp4"
+  },
+  {
+   "demo": "demo_1008",
+   "success": true,
+   "replans": 32,
+   "stop": "success",
+   "final_error_mm": 136.9,
+   "goal_hand_err_mm": 19.1,
+   "video": "demo_1008_grasp.mp4"
+  },
+  {
+   "demo": "demo_870",
+   "success": true,
+   "replans": 35,
+   "stop": "success",
+   "final_error_mm": 184.7,
+   "goal_hand_err_mm": 13.3,
+   "video": "demo_870_grasp.mp4"
+  },
+  {
+   "demo": "demo_686",
+   "success": false,
+   "replans": 80,
+   "stop": "max_replans",
+   "final_error_mm": 147.2,
+   "goal_hand_err_mm": 16.8,
+   "video": "demo_686_grasp.mp4"
+  },
+  {
+   "demo": "demo_1076",
+   "success": true,
+   "replans": 23,
+   "stop": "success",
+   "final_error_mm": 168.8,
+   "goal_hand_err_mm": 18.3,
+   "video": "demo_1076_grasp.mp4"
+  },
+  {
+   "demo": "demo_665",
+   "success": true,
+   "replans": 34,
+   "stop": "success",
+   "final_error_mm": 178.3,
+   "goal_hand_err_mm": 7.5,
+   "video": "demo_665_grasp.mp4"
+  },
+  {
+   "demo": "demo_1142",
+   "success": true,
+   "replans": 43,
+   "stop": "success",
+   "final_error_mm": 171.4,
+   "goal_hand_err_mm": 13.2,
+   "video": "demo_1142_grasp.mp4"
+  },
+  {
+   "demo": "demo_793",
+   "success": true,
+   "replans": 31,
+   "stop": "success",
+   "final_error_mm": 123.5,
+   "goal_hand_err_mm": 20.6,
+   "video": "demo_793_grasp.mp4"
+  },
+  {
+   "demo": "demo_131",
+   "success": true,
+   "replans": 25,
+   "stop": "success",
+   "final_error_mm": 142.4,
+   "goal_hand_err_mm": 22.6,
+   "video": "demo_131_grasp.mp4"
+  },
+  {
+   "demo": "demo_952",
+   "success": true,
+   "replans": 33,
+   "stop": "success",
+   "final_error_mm": 141.1,
+   "goal_hand_err_mm": 21.7,
+   "video": "demo_952_grasp.mp4"
+  },
+  {
+   "demo": "demo_907",
+   "success": true,
+   "replans": 25,
+   "stop": "success",
+   "final_error_mm": 132.7,
+   "goal_hand_err_mm": 21.5,
+   "video": "demo_907_grasp.mp4"
+  },
+  {
+   "demo": "demo_1207",
+   "success": true,
+   "replans": 54,
+   "stop": "success",
+   "final_error_mm": 145.7,
+   "goal_hand_err_mm": 24.7,
+   "video": "demo_1207_grasp.mp4"
+  },
+  {
+   "demo": "demo_769",
+   "success": true,
+   "replans": 34,
+   "stop": "success",
+   "final_error_mm": 156.2,
+   "goal_hand_err_mm": 12.8,
+   "video": "demo_769_grasp.mp4"
+  },
+  {
+   "demo": "demo_731",
+   "success": true,
+   "replans": 49,
+   "stop": "success",
+   "final_error_mm": 162.0,
+   "goal_hand_err_mm": 22.0,
+   "video": "demo_731_grasp.mp4"
+  },
+  {
+   "demo": "demo_118",
+   "success": true,
+   "replans": 41,
+   "stop": "success",
+   "final_error_mm": 179.1,
+   "goal_hand_err_mm": 17.2,
+   "video": "demo_118_grasp.mp4"
+  },
+  {
+   "demo": "demo_831",
+   "success": true,
+   "replans": 31,
+   "stop": "success",
+   "final_error_mm": 130.3,
+   "goal_hand_err_mm": 18.7,
+   "video": "demo_831_grasp.mp4"
+  },
+  {
+   "demo": "demo_170",
+   "success": true,
+   "replans": 51,
+   "stop": "success",
+   "final_error_mm": 157.3,
+   "goal_hand_err_mm": 23.4,
+   "video": "demo_170_grasp.mp4"
+  },
+  {
+   "demo": "demo_146",
+   "success": true,
+   "replans": 71,
+   "stop": "success",
+   "final_error_mm": 133.1,
+   "goal_hand_err_mm": 12.5,
+   "video": "demo_146_grasp.mp4"
+  },
+  {
+   "demo": "demo_739",
+   "success": true,
+   "replans": 36,
+   "stop": "success",
+   "final_error_mm": 183.8,
+   "goal_hand_err_mm": 23.1,
+   "video": "demo_739_grasp.mp4"
+  },
+  {
+   "demo": "demo_322",
+   "success": true,
+   "replans": 35,
+   "stop": "success",
+   "final_error_mm": 145.6,
+   "goal_hand_err_mm": 18.1,
+   "video": "demo_322_grasp.mp4"
+  },
+  {
+   "demo": "demo_603",
+   "success": true,
+   "replans": 23,
+   "stop": "success",
+   "final_error_mm": 119.6,
+   "goal_hand_err_mm": 16.2,
+   "video": "demo_603_grasp.mp4"
+  },
+  {
+   "demo": "demo_814",
+   "success": true,
+   "replans": 26,
+   "stop": "success",
+   "final_error_mm": 128.3,
+   "goal_hand_err_mm": 20.8,
+   "video": "demo_814_grasp.mp4"
+  },
+  {
+   "demo": "demo_1234",
+   "success": true,
+   "replans": 33,
+   "stop": "success",
+   "final_error_mm": 138.8,
+   "goal_hand_err_mm": 14.3,
+   "video": "demo_1234_grasp.mp4"
+  },
+  {
+   "demo": "demo_1359",
+   "success": true,
+   "replans": 31,
+   "stop": "success",
+   "final_error_mm": 138.9,
+   "goal_hand_err_mm": 28.2,
+   "video": "demo_1359_grasp.mp4"
+  },
+  {
+   "demo": "demo_490",
+   "success": true,
+   "replans": 34,
+   "stop": "success",
+   "final_error_mm": 133.8,
+   "goal_hand_err_mm": 7.5,
+   "video": "demo_490_grasp.mp4"
+  },
+  {
+   "demo": "demo_691",
+   "success": true,
+   "replans": 43,
+   "stop": "success",
+   "final_error_mm": 141.0,
+   "goal_hand_err_mm": 8.1,
+   "video": "demo_691_grasp.mp4"
+  },
+  {
+   "demo": "demo_1356",
+   "success": true,
+   "replans": 38,
+   "stop": "success",
+   "final_error_mm": 164.2,
+   "goal_hand_err_mm": 7.8,
+   "video": "demo_1356_grasp.mp4"
+  },
+  {
+   "demo": "demo_687",
+   "success": true,
+   "replans": 23,
+   "stop": "success",
+   "final_error_mm": 115.7,
+   "goal_hand_err_mm": 6.7,
+   "video": "demo_687_grasp.mp4"
+  },
+  {
+   "demo": "demo_1398",
+   "success": true,
+   "replans": 34,
+   "stop": "success",
+   "final_error_mm": 121.6,
+   "goal_hand_err_mm": 14.0,
+   "video": "demo_1398_grasp.mp4"
+  },
+  {
+   "demo": "demo_353",
+   "success": true,
+   "replans": 37,
+   "stop": "success",
+   "final_error_mm": 173.6,
+   "goal_hand_err_mm": 16.8,
+   "video": "demo_353_grasp.mp4"
+  },
+  {
+   "demo": "demo_1199",
+   "success": true,
+   "replans": 52,
+   "stop": "success",
+   "final_error_mm": 150.2,
+   "goal_hand_err_mm": 13.6,
+   "video": "demo_1199_grasp.mp4"
+  },
+  {
+   "demo": "demo_1269",
+   "success": true,
+   "replans": 26,
+   "stop": "success",
+   "final_error_mm": 138.8,
+   "goal_hand_err_mm": 21.1,
+   "video": "demo_1269_grasp.mp4"
+  },
+  {
+   "demo": "demo_865",
+   "success": true,
+   "replans": 40,
+   "stop": "success",
+   "final_error_mm": 148.3,
+   "goal_hand_err_mm": 13.8,
+   "video": "demo_865_grasp.mp4"
+  },
+  {
+   "demo": "demo_453",
+   "success": true,
+   "replans": 26,
+   "stop": "success",
+   "final_error_mm": 154.8,
+   "goal_hand_err_mm": 27.7,
+   "video": "demo_453_grasp.mp4"
+  },
+  {
+   "demo": "demo_364",
+   "success": true,
+   "replans": 57,
+   "stop": "success",
+   "final_error_mm": 133.2,
+   "goal_hand_err_mm": 12.7,
+   "video": "demo_364_grasp.mp4"
+  },
+  {
+   "demo": "demo_614",
+   "success": true,
+   "replans": 65,
+   "stop": "success",
+   "final_error_mm": 175.0,
+   "goal_hand_err_mm": 20.6,
+   "video": "demo_614_grasp.mp4"
+  },
+  {
+   "demo": "demo_1110",
+   "success": true,
+   "replans": 38,
+   "stop": "success",
+   "final_error_mm": 149.2,
+   "goal_hand_err_mm": 23.1,
+   "video": "demo_1110_grasp.mp4"
+  },
+  {
+   "demo": "demo_1109",
+   "success": true,
+   "replans": 49,
+   "stop": "success",
+   "final_error_mm": 153.0,
+   "goal_hand_err_mm": 7.3,
+   "video": "demo_1109_grasp.mp4"
+  },
+  {
+   "demo": "demo_136",
+   "success": true,
+   "replans": 25,
+   "stop": "success",
+   "final_error_mm": 133.4,
+   "goal_hand_err_mm": 13.6,
+   "video": "demo_136_grasp.mp4"
+  },
+  {
+   "demo": "demo_511",
+   "success": true,
+   "replans": 37,
+   "stop": "success",
+   "final_error_mm": 135.2,
+   "goal_hand_err_mm": 24.4,
+   "video": "demo_511_grasp.mp4"
+  },
+  {
+   "demo": "demo_1388",
+   "success": true,
+   "replans": 62,
+   "stop": "success",
+   "final_error_mm": 158.4,
+   "goal_hand_err_mm": 9.4,
+   "video": "demo_1388_grasp.mp4"
+  },
+  {
+   "demo": "demo_659",
+   "success": true,
+   "replans": 39,
+   "stop": "success",
+   "final_error_mm": 161.2,
+   "goal_hand_err_mm": 13.9,
+   "video": "demo_659_grasp.mp4"
+  },
+  {
+   "demo": "demo_205",
+   "success": false,
+   "replans": 80,
+   "stop": "max_replans",
+   "final_error_mm": 163.2,
+   "goal_hand_err_mm": 19.1,
+   "video": "demo_205_grasp.mp4"
+  },
+  {
+   "demo": "demo_1300",
+   "success": true,
+   "replans": 68,
+   "stop": "success",
+   "final_error_mm": 158.8,
+   "goal_hand_err_mm": 12.3,
+   "video": "demo_1300_grasp.mp4"
+  },
+  {
+   "demo": "demo_1002",
+   "success": true,
+   "replans": 29,
+   "stop": "success",
+   "final_error_mm": 176.3,
+   "goal_hand_err_mm": 13.9,
+   "video": "demo_1002_grasp.mp4"
+  }
+ ]
+}

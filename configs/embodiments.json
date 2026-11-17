@@ -1,0 +1,25 @@
+{
+ "_note": [
+  "Every embodiment the export and evaluation code know about. Keys are the lowercase names stored in the data.",
+  "kind: human | robot. unidex_hand: folder under UniDex HandAdapter/urdf/{base,H2o}/ (robots only).",
+  "exclude_links: URDF link names that get no points (all points go to the remaining links). trained: whether the released checkpoints saw it. label: name shown in plots and tables (default: the key).",
+  "The first nine, in order, are the stored training data (EMBODIMENT_NAMES in scene_geometry.py; tests/test_embodiments.py checks this).",
+  "A variant of a stored hand has its own name, so its sampling seeds never collide with the stored hand's."
+ ],
+ "embodiments": {
+  "human":    {"kind": "human", "trained": true},
+  "ability":  {"kind": "robot", "unidex_hand": "Ability",  "trained": true},
+  "allegro":  {"kind": "robot", "unidex_hand": "Allegro",  "trained": true},
+  "inspire":  {"kind": "robot", "unidex_hand": "Inspire",  "trained": true},
+  "leap":     {"kind": "robot", "unidex_hand": "Leap",     "trained": true},
+  "oymotion": {"kind": "robot", "unidex_hand": "Oymotion", "trained": true},
+  "shadow":   {"kind": "robot", "unidex_hand": "Shadow",   "trained": true},
+  "wuji":     {"kind": "robot", "unidex_hand": "Wuji",     "trained": true},
+  "xhand":    {"kind": "robot", "unidex_hand": "Xhand",    "trained": true},
+  "shadow_noforearm": {"kind": "robot", "unidex_hand": "Shadow", "exclude_links": ["forearm"], "trained": true, "label": "shadow",
+                       "_note": "Shadow without its forearm mesh (~60% of Shadow's surface): the hand the checkpoint was trained on, minus the forearm points; plotted as 'shadow'"},
+  "svh":  {"kind": "robot", "unidex_hand": "Svh",  "trained": false, "_note": "held out: Schunk SVH, 5 fingers (configs/hands/svh.json)"},
+  "dg5f": {"kind": "robot", "unidex_hand": "Dg5f", "trained": false, "_note": "held out: Tesollo DG-5F, 5 fingers (configs/hands/dg5f.json)"},
+  "dex3": {"kind": "robot", "unidex_hand": "Dex3", "trained": false, "_note": "held out: Unitree Dex3-1, 3 fingers (configs/hands/dex3.json)"}
+ }
+}

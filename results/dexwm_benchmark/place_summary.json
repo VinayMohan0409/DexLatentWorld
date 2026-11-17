@@ -1,0 +1,464 @@
+{
+ "task": "place",
+ "done": 50,
+ "successes": 30,
+ "every_10": [
+  "8/10",
+  "14/20",
+  "20/30",
+  "25/40",
+  "30/50"
+ ],
+ "rows": [
+  {
+   "demo": "demo_133",
+   "success": true,
+   "replans": 8,
+   "stop": "success",
+   "final_error_mm": 91.9,
+   "goal_hand_err_mm": 4.4,
+   "video": "demo_133_place.mp4"
+  },
+  {
+   "demo": "demo_606",
+   "success": false,
+   "replans": 28,
+   "stop": "stalled",
+   "final_error_mm": 1394.5,
+   "goal_hand_err_mm": 10.3,
+   "video": "demo_606_place.mp4"
+  },
+  {
+   "demo": "demo_1364",
+   "success": false,
+   "replans": 16,
+   "stop": "stalled",
+   "final_error_mm": 274.6,
+   "goal_hand_err_mm": 20.9,
+   "video": "demo_1364_place.mp4"
+  },
+  {
+   "demo": "demo_1208",
+   "success": true,
+   "replans": 19,
+   "stop": "success",
+   "final_error_mm": 74.6,
+   "goal_hand_err_mm": 3.4,
+   "video": "demo_1208_place.mp4"
+  },
+  {
+   "demo": "demo_1341",
+   "success": true,
+   "replans": 9,
+   "stop": "success",
+   "final_error_mm": 88.2,
+   "goal_hand_err_mm": 6.4,
+   "video": "demo_1341_place.mp4"
+  },
+  {
+   "demo": "demo_1311",
+   "success": true,
+   "replans": 14,
+   "stop": "success",
+   "final_error_mm": 78.1,
+   "goal_hand_err_mm": 3.9,
+   "video": "demo_1311_place.mp4"
+  },
+  {
+   "demo": "demo_1008",
+   "success": true,
+   "replans": 3,
+   "stop": "success",
+   "final_error_mm": 79.2,
+   "goal_hand_err_mm": 12.6,
+   "video": "demo_1008_place.mp4"
+  },
+  {
+   "demo": "demo_870",
+   "success": true,
+   "replans": 3,
+   "stop": "success",
+   "final_error_mm": 88.5,
+   "goal_hand_err_mm": 23.3,
+   "video": "demo_870_place.mp4"
+  },
+  {
+   "demo": "demo_686",
+   "success": true,
+   "replans": 5,
+   "stop": "success",
+   "final_error_mm": 95.0,
+   "goal_hand_err_mm": 16.2,
+   "video": "demo_686_place.mp4"
+  },
+  {
+   "demo": "demo_1076",
+   "success": true,
+   "replans": 20,
+   "stop": "success",
+   "final_error_mm": 85.7,
+   "goal_hand_err_mm": 12.9,
+   "video": "demo_1076_place.mp4"
+  },
+  {
+   "demo": "demo_665",
+   "success": false,
+   "replans": 20,
+   "stop": "stalled",
+   "final_error_mm": 305.4,
+   "goal_hand_err_mm": 11.9,
+   "video": "demo_665_place.mp4"
+  },
+  {
+   "demo": "demo_1142",
+   "success": true,
+   "replans": 3,
+   "stop": "success",
+   "final_error_mm": 59.8,
+   "goal_hand_err_mm": 36.3,
+   "video": "demo_1142_place.mp4"
+  },
+  {
+   "demo": "demo_793",
+   "success": false,
+   "replans": 26,
+   "stop": "stalled",
+   "final_error_mm": 163.7,
+   "goal_hand_err_mm": 4.3,
+   "video": "demo_793_place.mp4"
+  },
+  {
+   "demo": "demo_131",
+   "success": false,
+   "replans": 49,
+   "stop": "stalled",
+   "final_error_mm": 135.5,
+   "goal_hand_err_mm": 11.8,
+   "video": "demo_131_place.mp4"
+  },
+  {
+   "demo": "demo_952",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 50.2,
+   "goal_hand_err_mm": 7.8,
+   "video": "demo_952_place.mp4"
+  },
+  {
+   "demo": "demo_907",
+   "success": true,
+   "replans": 11,
+   "stop": "success",
+   "final_error_mm": 85.3,
+   "goal_hand_err_mm": 4.5,
+   "video": "demo_907_place.mp4"
+  },
+  {
+   "demo": "demo_1207",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 64.4,
+   "goal_hand_err_mm": 23.6,
+   "video": "demo_1207_place.mp4"
+  },
+  {
+   "demo": "demo_769",
+   "success": false,
+   "replans": 16,
+   "stop": "stalled",
+   "final_error_mm": 347.8,
+   "goal_hand_err_mm": 4.6,
+   "video": "demo_769_place.mp4"
+  },
+  {
+   "demo": "demo_731",
+   "success": true,
+   "replans": 8,
+   "stop": "success",
+   "final_error_mm": 95.0,
+   "goal_hand_err_mm": 8.9,
+   "video": "demo_731_place.mp4"
+  },
+  {
+   "demo": "demo_118",
+   "success": true,
+   "replans": 5,
+   "stop": "success",
+   "final_error_mm": 16.7,
+   "goal_hand_err_mm": 5.5,
+   "video": "demo_118_place.mp4"
+  },
+  {
+   "demo": "demo_831",
+   "success": true,
+   "replans": 23,
+   "stop": "success",
+   "final_error_mm": 31.1,
+   "goal_hand_err_mm": 24.2,
+   "video": "demo_831_place.mp4"
+  },
+  {
+   "demo": "demo_170",
+   "success": true,
+   "replans": 7,
+   "stop": "success",
+   "final_error_mm": 85.5,
+   "goal_hand_err_mm": 5.5,
+   "video": "demo_170_place.mp4"
+  },
+  {
+   "demo": "demo_146",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 73.9,
+   "goal_hand_err_mm": 13.6,
+   "video": "demo_146_place.mp4"
+  },
+  {
+   "demo": "demo_739",
+   "success": false,
+   "replans": 19,
+   "stop": "stalled",
+   "final_error_mm": 257.5,
+   "goal_hand_err_mm": 10.2,
+   "video": "demo_739_place.mp4"
+  },
+  {
+   "demo": "demo_322",
+   "success": false,
+   "replans": 25,
+   "stop": "stalled",
+   "final_error_mm": 155.3,
+   "goal_hand_err_mm": 34.8,
+   "video": "demo_322_place.mp4"
+  },
+  {
+   "demo": "demo_603",
+   "success": true,
+   "replans": 5,
+   "stop": "success",
+   "final_error_mm": 77.6,
+   "goal_hand_err_mm": 18.6,
+   "video": "demo_603_place.mp4"
+  },
+  {
+   "demo": "demo_814",
+   "success": false,
+   "replans": 30,
+   "stop": "stalled",
+   "final_error_mm": 119.2,
+   "goal_hand_err_mm": 9.6,
+   "video": "demo_814_place.mp4"
+  },
+  {
+   "demo": "demo_1234",
+   "success": false,
+   "replans": 16,
+   "stop": "stalled",
+   "final_error_mm": 190.7,
+   "goal_hand_err_mm": 20.5,
+   "video": "demo_1234_place.mp4"
+  },
+  {
+   "demo": "demo_1359",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 33.4,
+   "goal_hand_err_mm": 29.9,
+   "video": "demo_1359_place.mp4"
+  },
+  {
+   "demo": "demo_490",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 40.5,
+   "goal_hand_err_mm": 10.8,
+   "video": "demo_490_place.mp4"
+  },
+  {
+   "demo": "demo_691",
+   "success": true,
+   "replans": 4,
+   "stop": "success",
+   "final_error_mm": 79.6,
+   "goal_hand_err_mm": 13.2,
+   "video": "demo_691_place.mp4"
+  },
+  {
+   "demo": "demo_1356",
+   "success": false,
+   "replans": 41,
+   "stop": "stalled",
+   "final_error_mm": 357.2,
+   "goal_hand_err_mm": 19.4,
+   "video": "demo_1356_place.mp4"
+  },
+  {
+   "demo": "demo_687",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 69.9,
+   "goal_hand_err_mm": 30.8,
+   "video": "demo_687_place.mp4"
+  },
+  {
+   "demo": "demo_1398",
+   "success": false,
+   "replans": 23,
+   "stop": "stalled",
+   "final_error_mm": 173.7,
+   "goal_hand_err_mm": 3.8,
+   "video": "demo_1398_place.mp4"
+  },
+  {
+   "demo": "demo_353",
+   "success": false,
+   "replans": 39,
+   "stop": "stalled",
+   "final_error_mm": 179.9,
+   "goal_hand_err_mm": 9.3,
+   "video": "demo_353_place.mp4"
+  },
+  {
+   "demo": "demo_1199",
+   "success": true,
+   "replans": 10,
+   "stop": "success",
+   "final_error_mm": 71.8,
+   "goal_hand_err_mm": 7.2,
+   "video": "demo_1199_place.mp4"
+  },
+  {
+   "demo": "demo_1269",
+   "success": true,
+   "replans": 4,
+   "stop": "success",
+   "final_error_mm": 76.3,
+   "goal_hand_err_mm": 4.9,
+   "video": "demo_1269_place.mp4"
+  },
+  {
+   "demo": "demo_865",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 63.7,
+   "goal_hand_err_mm": 13.5,
+   "video": "demo_865_place.mp4"
+  },
+  {
+   "demo": "demo_453",
+   "success": false,
+   "replans": 33,
+   "stop": "stalled",
+   "final_error_mm": 106.5,
+   "goal_hand_err_mm": 4.9,
+   "video": "demo_453_place.mp4"
+  },
+  {
+   "demo": "demo_364",
+   "success": false,
+   "replans": 21,
+   "stop": "stalled",
+   "final_error_mm": 257.3,
+   "goal_hand_err_mm": 4.1,
+   "video": "demo_364_place.mp4"
+  },
+  {
+   "demo": "demo_614",
+   "success": true,
+   "replans": 4,
+   "stop": "success",
+   "final_error_mm": 81.6,
+   "goal_hand_err_mm": 4.5,
+   "video": "demo_614_place.mp4"
+  },
+  {
+   "demo": "demo_1110",
+   "success": false,
+   "replans": 16,
+   "stop": "stalled",
+   "final_error_mm": 274.7,
+   "goal_hand_err_mm": 8.4,
+   "video": "demo_1110_place.mp4"
+  },
+  {
+   "demo": "demo_1109",
+   "success": false,
+   "replans": 16,
+   "stop": "stalled",
+   "final_error_mm": 177.7,
+   "goal_hand_err_mm": 4.1,
+   "video": "demo_1109_place.mp4"
+  },
+  {
+   "demo": "demo_136",
+   "success": false,
+   "replans": 80,
+   "stop": "max_replans",
+   "final_error_mm": 201.6,
+   "goal_hand_err_mm": 4.4,
+   "video": "demo_136_place.mp4"
+  },
+  {
+   "demo": "demo_511",
+   "success": true,
+   "replans": 14,
+   "stop": "success",
+   "final_error_mm": 90.2,
+   "goal_hand_err_mm": 15.0,
+   "video": "demo_511_place.mp4"
+  },
+  {
+   "demo": "demo_1388",
+   "success": false,
+   "replans": 19,
+   "stop": "stalled",
+   "final_error_mm": 966.9,
+   "goal_hand_err_mm": 25.5,
+   "video": "demo_1388_place.mp4"
+  },
+  {
+   "demo": "demo_659",
+   "success": true,
+   "replans": 3,
+   "stop": "success",
+   "final_error_mm": 60.0,
+   "goal_hand_err_mm": 8.2,
+   "video": "demo_659_place.mp4"
+  },
+  {
+   "demo": "demo_205",
+   "success": false,
+   "replans": 33,
+   "stop": "stalled",
+   "final_error_mm": 130.5,
+   "goal_hand_err_mm": 26.8,
+   "video": "demo_205_place.mp4"
+  },
+  {
+   "demo": "demo_1300",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 93.5,
+   "goal_hand_err_mm": 14.2,
+   "video": "demo_1300_place.mp4"
+  },
+  {
+   "demo": "demo_1002",
+   "success": true,
+   "replans": 2,
+   "stop": "success",
+   "final_error_mm": 70.2,
+   "goal_hand_err_mm": 14.0,
+   "video": "demo_1002_place.mp4"
+  }
+ ]
+}

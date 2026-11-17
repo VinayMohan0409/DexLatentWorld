@@ -1,0 +1,80 @@
+{
+ "unidex_hand": "Svh",
+ "_note": "Schunk SVH, 5 fingers, 20 joints (9 actuated, 11 mimic). Licence: GPL-3.0 per the hand's LICENSE file (meshes are fetched, not redistributed).",
+ "source": {
+  "repo": "https://github.com/dexsuite/dex-urdf.git",
+  "commit": "f5e7132f22108164577fea4c25ef99b5cc0e1900"
+ },
+ "sides": {
+  "right": {
+   "urdf": "robots/hands/schunk_hand/schunk_svh_hand_right.urdf",
+   "knuckles": {
+    "5": "right_hand_l",
+    "9": "right_hand_k",
+    "13": "right_hand_j",
+    "17": "right_hand_i"
+   }
+  },
+  "left": {
+   "urdf": "robots/hands/schunk_hand/schunk_svh_hand_left.urdf",
+   "knuckles": {
+    "5": "left_hand_l",
+    "9": "left_hand_k",
+    "13": "left_hand_j",
+    "17": "left_hand_i"
+   }
+  }
+ },
+ "tips": [
+  "thtip",
+  "fftip",
+  "mftip",
+  "rftip",
+  "lftip"
+ ],
+ "base_joint_origin": {
+  "left": {
+   "xyz": [
+    -0.01632,
+    -0.01335,
+    0.00223
+   ],
+   "rpy": [
+    0.19078,
+    1.65422,
+    0.56882
+   ]
+  },
+  "right": {
+   "xyz": [
+    -0.02467,
+    0.01412,
+    0.01095
+   ],
+   "rpy": [
+    1.56747,
+    -1.23303,
+    1.70786
+   ]
+  }
+ },
+ "calibration": {
+  "sides": {
+   "left": {
+    "tip_error_mm": 11.36,
+    "knuckle_error_mm": 7.5
+   },
+   "right": {
+    "tip_error_mm": 19.28,
+    "knuckle_error_mm": 8.8
+   }
+  },
+  "frames": 16,
+  "sequences": [
+   "subject1/h1/0",
+   "subject1/o1/6",
+   "subject2/o1/0",
+   "subject3/k1/7"
+  ]
+ }
+}

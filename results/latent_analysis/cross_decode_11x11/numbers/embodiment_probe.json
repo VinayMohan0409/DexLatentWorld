@@ -1,0 +1,17 @@
+{
+ "points": 9042,
+ "latent_actions": {
+  "chance": 0.09090909090909091,
+  "train": 6820,
+  "test": 2222,
+  "linear": 0.26552655265526554,
+  "random_forest": 0.1719171917191719
+ },
+ "control_frame_features": {
+  "chance": 0.09090909090909091,
+  "train": 6820,
+  "test": 2222,
+  "linear": 0.8532853285328533,
+  "random_forest": 0.472997299729973
+ }
+}

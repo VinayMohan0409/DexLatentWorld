@@ -1,0 +1,12 @@
+{
+ "tasks": ["stack", "milk", "push_puck", "push_cube"],
+ "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+ "planner": {"pop": 64, "iters": 4, "elite_frac": 0.1, "min_std": 0.05, "std_decay": 1.0, "warm_start": true, "weight_step_index": null},
+ "copies": 64,
+ "stack": {"replans": 20, "steps_per_replan": 25, "execute_step_index": -1, "max_step_mm": 60.0, "converge_mm": 20.0, "stall_patience": 8},
+ "milk": {"replans": 20, "steps_per_replan": 25, "execute_step_index": -1, "max_step_mm": 60.0, "converge_mm": 20.0, "stall_patience": 8, "grasp_yaw": "none", "lift_converge_mm": 30.0, "transfer_converge_mm": 40.0},
+ "push_puck": {"object": "puck", "replans": 15, "approach_replans": 50, "stall_patience": 100, "execute_step_index": 1, "scripted_approach": false, "scripted_approach_steps": 60, "distance_mm": 200.0, "approach_offset_mm": 60.0, "behind_offset_mm": 15.0, "reposition_threshold_mm": 30.0, "steps_per_replan": 25, "approach_execute_step_index": -1, "max_step_mm": 60.0, "converge_mm": 40.0, "push_pop": 128, "approach_pop": 128, "push_iters": 6, "push_std_decay": 0.85, "w_floor": 1.0, "floor_ramp_depth_mm": 10.0},
+ "push_cube": {"object": "cube", "replans": 50, "approach_replans": 100, "stall_patience": 200, "execute_step_index": 0, "scripted_approach": true, "scripted_approach_steps": 60, "distance_mm": 200.0, "approach_offset_mm": 60.0, "behind_offset_mm": 15.0, "reposition_threshold_mm": 30.0, "steps_per_replan": 25, "approach_execute_step_index": -1, "max_step_mm": 60.0, "converge_mm": 40.0, "push_pop": 128, "approach_pop": 128, "push_iters": 6, "push_std_decay": 0.85, "w_floor": 1.0, "floor_ramp_depth_mm": 10.0},
+ "reach": {"distance_mm": 150.0, "angles_deg": [0.0, 72.0, 144.0, 216.0, 288.0], "replans": 15, "steps_per_replan": 25, "execute_step_index": -1, "max_step_mm": 60.0, "converge_mm": 20.0},
+ "pointworld": {"pop": 64, "iters": 4, "elite_frac": 0.1, "min_std": 0.05, "sigma_max": 0.5, "std_decay": 1.0, "n_knots": 4, "action_scale": 0.3, "max_reach": 0.35, "batch": 32, "cost_chunk": 64, "outward_normals": false}
+}

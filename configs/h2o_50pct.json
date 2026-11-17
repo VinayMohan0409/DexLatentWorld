@@ -1,0 +1,17 @@
+{
+ "dataset": "h2o",
+ "data_dir": "training_data/h2o_cross_embodiment_pointclouds",
+ "variant": "50pct",
+ "split_file": "splits/h2o_50pct.json",
+ "embodiments": {
+  "names": ["human", "ability", "allegro", "inspire", "leap", "oymotion", "shadow", "wuji", "xhand"],
+  "train_on": "all",
+  "held_out": []
+ },
+ "window": {"gap": 6, "n_steps": 5, "points_per_embodiment_hand": 2048, "points_per_entity": 1024, "voxel_size": 0.0},
+ "points_note": "hands keep every stored point (2048 = 1024 per hand); object, table and each distractor keep every second stored point (2048 -> 1024); 0 = every stored point",
+ "centring": "mean of all points of the embodiment's own frame 0, no segment labels",
+ "voxel_note": "no data-layer voxel reduction (voxel_size 0.0): every point is kept and predicted; the backbone sees one point per 5 mm voxel in every frame through the voxel_dedup wrapper and every point takes its voxel's features",
+ "normalisation": {"split": "train", "windows": 4000, "seed": 0, "embodiments": "all", "static_points_counted_as_zero": true},
+ "checkpoint_selection": "validation only (no test set)"
+}

@@ -1,0 +1,96 @@
+{
+ "unidex_hand": "Dex3",
+ "_note": "Unitree Dex3-1, 3 fingers (thumb, index, middle), 7 joints. Licence: BSD-3-Clause (unitree_ros). The URDF has no tip links: they are added at the far end of each distal link's mesh.",
+ "source": {
+  "repo": "https://github.com/unitreerobotics/unitree_ros.git",
+  "commit": "725b59b6de39a26c425632120c89f23c49a36f1e"
+ },
+ "sides": {
+  "right": {
+   "urdf": "robots/dexterous_hand_description/dex3_1/dex3_1_r.urdf",
+   "add_tips": {
+    "thumb_tip": {
+     "parent": "right_hand_thumb_2_link"
+    },
+    "index_tip": {
+     "parent": "right_hand_index_1_link"
+    },
+    "middle_tip": {
+     "parent": "right_hand_middle_1_link"
+    }
+   },
+   "knuckles": {
+    "5": "right_hand_index_0_link",
+    "9": "right_hand_middle_0_link"
+   }
+  },
+  "left": {
+   "urdf": "robots/dexterous_hand_description/dex3_1/dex3_1_l.urdf",
+   "add_tips": {
+    "thumb_tip": {
+     "parent": "left_hand_thumb_2_link"
+    },
+    "index_tip": {
+     "parent": "left_hand_index_1_link"
+    },
+    "middle_tip": {
+     "parent": "left_hand_middle_1_link"
+    }
+   },
+   "knuckles": {
+    "5": "left_hand_index_0_link",
+    "9": "left_hand_middle_0_link"
+   }
+  }
+ },
+ "tips": [
+  "thumb_tip",
+  "index_tip",
+  "middle_tip"
+ ],
+ "base_joint_origin": {
+  "left": {
+   "xyz": [
+    0.01483,
+    0.00253,
+    -0.00874
+   ],
+   "rpy": [
+    1.75441,
+    -0.1713,
+    0.17621
+   ]
+  },
+  "right": {
+   "xyz": [
+    0.01595,
+    0.00092,
+    -0.00125
+   ],
+   "rpy": [
+    1.33918,
+    0.0853,
+    0.1765
+   ]
+  }
+ },
+ "calibration": {
+  "sides": {
+   "left": {
+    "tip_error_mm": 12.52,
+    "knuckle_error_mm": 16.81
+   },
+   "right": {
+    "tip_error_mm": 16.5,
+    "knuckle_error_mm": 17.19
+   }
+  },
+  "frames": 16,
+  "sequences": [
+   "subject1/h1/0",
+   "subject1/o1/6",
+   "subject2/o1/0",
+   "subject3/k1/7"
+  ]
+ }
+}

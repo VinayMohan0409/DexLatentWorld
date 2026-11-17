@@ -1,0 +1,13 @@
+# Vendored: robosuite's PickPlace family
+
+Source: robosuite v1.5.1, `robosuite/environments/manipulation/pick_place.py`. Licence: robosuite's own (`LICENSE` here).
+
+Checked against official robosuite v1.5.1 `robosuite/environments/manipulation/pick_place.py` (downloaded from GitHub): the Python code is identical once docstrings and comments are ignored (compared as syntax trees). The file is therefore NOT byte-identical to upstream (docstrings and comments were removed, 619 against 836 lines), and its header's word "verbatim" means "same code".
+
+Why it is used: the local robosuite fork's own PickPlace family is broken for a Panda arm (object lists hard-coded to "can", wrong object construction, a wrong initial joint pose); importing this file re-registers the family over the fork's classes.
+
+SHA-256 of the copied file:
+
+```
+673fc8a4e8fd647b0373f9e14c7c35f64e3b247ad5147d3e1d8a3aa87d4fd038 vanilla_pick_place.py
+```
