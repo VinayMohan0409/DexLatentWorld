@@ -83,11 +83,8 @@
   <!-- Method -->
   <section class="wrap wide">
     <h2 class="label">Method</h2>
-    <!-- TODO: export Fig. 2 from the paper to assets/img/architecture.png -->
     <figure class="arch">
-      <img src="assets/img/architecture.png" alt="DexLatentWorld architecture"
-           onerror="this.parentNode.classList.add('missing')">
-      <div class="slot"><span>Architecture figure</span></div>
+      <img src="assets/img/architecture.png" alt="DexLatentWorld architecture">
       <figcaption class="note">
         An inverse dynamics model encodes scene transitions into compact latent actions, which are aligned across
         embodiments through contrastive learning. The forward dynamics model conditions on the current scene and a
@@ -103,45 +100,45 @@
     <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; Franka arm with Allegro hand</span></h3>
     <div class="strips">
       <figure>
+        <h4 class="task">Reach</h4>
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_reach.jpg">
           <source src="assets/video/sim/robocasa_reach.mp4" type="video/mp4">
         </video>
-        <figcaption><span>Reach</span></figcaption>
       </figure>
       <figure>
+        <h4 class="task">Grasp</h4>
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_grasp.jpg">
           <source src="assets/video/sim/robocasa_grasp.mp4" type="video/mp4">
         </video>
-        <figcaption><span>Grasp</span></figcaption>
       </figure>
       <figure>
+        <h4 class="task">Place</h4>
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_place.jpg">
           <source src="assets/video/sim/robocasa_place.mp4" type="video/mp4">
         </video>
-        <figcaption><span>Place</span></figcaption>
       </figure>
     </div>
 
     <h3 class="sub">Gripper Manipulation <span>RoboSuite &middot; Franka Panda, grippers unseen during training</span></h3>
-    <!-- TODO: for each tile, replace <div class="slot">...</div> with
-         <video autoplay muted loop playsinline preload="metadata"><source src="assets/video/sim/gripper_XXX.mp4" type="video/mp4"></video>
-    -->
+    <!-- To add a video, replace the tile's <div class="slot">...</div> with:
+         <video autoplay muted loop playsinline preload="metadata"><source src="assets/video/sim/gripper_NAME.mp4" type="video/mp4"></video>
+         using the NAME noted on each tile. -->
     <div class="grid two">
-      <figure>
-        <div class="slot"><span>Coming soon</span></div>
-        <figcaption><span>Reach + Push Puck</span><span class="meta">Wiping gripper</span></figcaption>
+      <figure>  <!-- NAME: push_puck -->
+        <h4 class="task">Reach + Push Puck<span>Wiping gripper</span></h4>
+        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
       </figure>
-      <figure>
-        <div class="slot"><span>Coming soon</span></div>
-        <figcaption><span>Push Cube</span><span class="meta">Wiping gripper</span></figcaption>
+      <figure>  <!-- NAME: push_cube -->
+        <h4 class="task">Push Cube<span>Wiping gripper</span></h4>
+        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
       </figure>
-      <figure>
-        <div class="slot"><span>Coming soon</span></div>
-        <figcaption><span>Milk Transport</span><span class="meta">Robotiq 140</span></figcaption>
+      <figure>  <!-- NAME: milk_transport -->
+        <h4 class="task">Milk Transport<span>Robotiq 140</span></h4>
+        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
       </figure>
-      <figure>
-        <div class="slot"><span>Coming soon</span></div>
-        <figcaption><span>Cube Stacking</span><span class="meta">Robotiq 140</span></figcaption>
+      <figure>  <!-- NAME: cube_stacking -->
+        <h4 class="task">Cube Stacking<span>Robotiq 140</span></h4>
+        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
       </figure>
     </div>
   </section>
