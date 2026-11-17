@@ -360,3 +360,6 @@ figcaption.note {
 @media (max-width: 600px) {
   .grid.three { grid-template-columns: 1fr; gap: 28px; }
 }
+
+.title { display: flex; align-items: center; justify-content: center; gap: 0.22em; }
+.title .logo { height: 0.95em; width: auto; background: none; flex: none; }
