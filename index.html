@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DexLatentWorld</title>
+  <meta name="description" content="DexLatentWorld: 3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation.">
+  <meta property="og:title" content="DexLatentWorld">
+  <meta property="og:description" content="3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation.">
+  <meta property="og:image" content="assets/img/real/grasp_cup.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="title">DexLatentWorld</h1>
+    <p class="subtitle">3D Cross-Embodiment Latent Action World Models <br>for Zero-Shot Robotic Manipulation</p>
+
+    <!-- TODO: replace with authors and affiliations after review.
+         Example:
+         <p class="authors">
+           <a href="https://...">First Author</a><sup>1</sup>
+           <a href="https://...">Second Author</a><sup>1,2</sup>
+         </p>
+         <p class="affil"><span><sup>1</sup>Imperial College London</span></p>
+    -->
+    <p class="authors">Anonymous Authors</p>
+
+    <nav class="links">
+      <!-- TODO: set the arXiv URL and remove class="is-pending". -->
+      <a class="btn is-pending" href="#" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v5h5M9 12h7M9 15.5h7M9 19h4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Paper</span>
+      </a>
+      <a class="btn" href="https://github.com/VinayMohan0409/DexLatentWorld">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+        <span>Code</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Video -->
+  <section class="wrap wide">
+    <div class="video-frame">
+      <!-- TODO: replace the placeholder with the video, e.g.
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DexLatentWorld" allowfullscreen></iframe>
+           or
+           <video controls preload="metadata" poster="assets/img/video_poster.jpg"><source src="assets/video/overview.mp4" type="video/mp4"></video>
+      -->
+      <div class="video-placeholder"><span>Video coming soon</span></div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="wrap">
+    <h2 class="label">Abstract</h2>
+    <p class="abstract">
+      World models facilitate planning and control in robotic manipulation by enabling agents to anticipate the
+      consequences of their actions. However, they typically rely on action-labelled interaction data that is costly
+      to acquire and difficult to scale. These models are also often tied to the specific embodiment they were trained
+      on, limiting transferability to previously unseen robot morphologies. We introduce a 3D latent-action world
+      model that learns continuous action representations directly from point-cloud observations of retargeted human
+      manipulation demonstrations. A contrastive objective is used to encourage consistent representations of motion
+      across embodiments. The resulting unified latent action space serves directly as the search space for
+      model-predictive control, where sampled latent actions condition particle-based future predictions. Executable
+      robot commands are then recovered from the predicted geometric motion without requiring an
+      embodiment-specific action decoder. Through extensive evaluations, we demonstrate that the learned latent
+      actions exhibit controllable and compositional motion, transfer to unseen robot embodiments, and support
+      zero-shot manipulation with unseen gripper geometries. Following task-agnostic adaptation, our model achieves
+      90%, 92%, and 60% success on reaching, grasping, and placing, respectively, compared with DexWM&rsquo;s reported
+      72%, 58%, and 28%. Finally, we demonstrate zero-shot real-world manipulation with an unseen dexterous hand,
+      achieving an 86% success rate across 50 trials on five diverse tasks involving pushing, grasping, and lifting
+      everyday objects. These results highlight the potential of geometry-grounded latent actions as a unified,
+      transferable interface for world-model-based robotic manipulation.
+    </p>
+  </section>
+
+  <!-- Demonstrations -->
+  <section class="wrap wide">
+    <h2 class="label">Real-World Demonstrations</h2>
+    <p class="lead">
+      The H2O-pretrained world model deployed on a UR7e arm with a Sharpa Wave hand, unseen during training and
+      without fine-tuning.
+    </p>
+
+    <figure class="feature">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/img/real/grasp_cup_poster.jpg">
+        <source src="assets/video/grasp_cup_8x.mp4" type="video/mp4">
+      </video>
+      <figcaption><span>Grasp and lift cup</span><span class="meta">8&times; speed</span></figcaption>
+    </figure>
+
+    <div class="grid">
+      <figure>
+        <img src="assets/img/real/push_tissue_box.jpg" alt="Sharpa Wave hand pushing a tissue box" loading="lazy">
+        <figcaption><span>Push tissue box</span><span class="meta">10 / 10</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/real/push_egg_carton.jpg" alt="Sharpa Wave hand pushing an egg carton" loading="lazy">
+        <figcaption><span>Push egg carton</span><span class="meta">9 / 10</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/real/grasp_cup.jpg" alt="Sharpa Wave hand grasping a paper cup" loading="lazy">
+        <figcaption><span>Grasp and lift cup</span><span class="meta">7 / 10</span></figcaption>
+      </figure>
+      <!-- TODO: add the bottle image and uncomment.
+      <figure>
+        <img src="assets/img/real/grasp_bottle.jpg" alt="Sharpa Wave hand grasping a bottle" loading="lazy">
+        <figcaption><span>Grasp bottle</span><span class="meta">9 / 10</span></figcaption>
+      </figure>
+      -->
+      <figure>
+        <img src="assets/img/real/grasp_scarf.jpg" alt="Sharpa Wave hand grasping a scarf" loading="lazy">
+        <figcaption><span>Grasp scarf</span><span class="meta">8 / 10</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section class="wrap">
+    <h2 class="label">Citation</h2>
+    <!-- TODO: replace with the arXiv BibTeX once the paper is posted. -->
+    <div class="bibtex">
+      <button class="copy" type="button" aria-label="Copy BibTeX">Copy</button>
+<pre><code id="bibtex">@article{dexlatentworld2026,
+  title   = {DexLatentWorld: 3D Cross-Embodiment Latent Action World
+             Models for Zero-Shot Robotic Manipulation},
+  author  = {Anonymous},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>DexLatentWorld</p>
+</footer>
+
+<script>
+  document.querySelector('.copy').addEventListener('click', function () {
+    var btn = this;
+    navigator.clipboard.writeText(document.getElementById('bibtex').textContent).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    });
+  });
+</script>
+</body>
+</html>
