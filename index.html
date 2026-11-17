@@ -7,7 +7,7 @@
   <meta name="description" content="DexLatentWorld: 3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation.">
   <meta property="og:title" content="DexLatentWorld">
   <meta property="og:description" content="3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation.">
-  <meta property="og:image" content="assets/img/real/grasp_cup.jpg">
+  <meta property="og:image" content="assets/img/architecture.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,15 +21,12 @@
     <h1 class="title">DexLatentWorld</h1>
     <p class="subtitle">3D Cross-Embodiment Latent Action World Models <br>for Zero-Shot Robotic Manipulation</p>
 
-    <!-- TODO: replace with authors and affiliations after review.
-         Example:
-         <p class="authors">
-           <a href="https://...">First Author</a><sup>1</sup>
-           <a href="https://...">Second Author</a><sup>1,2</sup>
-         </p>
-         <p class="affil"><span><sup>1</sup>Imperial College London</span></p>
-    -->
-    <p class="authors">Anonymous Authors</p>
+    <p class="authors">
+      <span>Vinay Udit Mohan</span>
+      <span>Xuchuan Huang</span>
+      <span>Rolandos Alexandros Potamias</span>
+    </p>
+    <p class="affil">Imperial College London</p>
 
     <nav class="links">
       <!-- TODO: set the arXiv URL and remove class="is-pending". -->
@@ -83,45 +80,77 @@
     </p>
   </section>
 
-  <!-- Demonstrations -->
+  <!-- Method -->
   <section class="wrap wide">
-    <h2 class="label">Real-World Demonstrations</h2>
-    <p class="lead">
-      The H2O-pretrained world model deployed on a UR7e arm with a Sharpa Wave hand, unseen during training and
-      without fine-tuning.
-    </p>
-
-    <figure class="feature">
-      <video autoplay muted loop playsinline preload="metadata" poster="assets/img/real/grasp_cup_poster.jpg">
-        <source src="assets/video/grasp_cup_8x.mp4" type="video/mp4">
-      </video>
-      <figcaption><span>Grasp and lift cup</span><span class="meta">8&times; speed</span></figcaption>
+    <h2 class="label">Method</h2>
+    <!-- TODO: export Fig. 2 from the paper to assets/img/architecture.png -->
+    <figure class="arch">
+      <img src="assets/img/architecture.png" alt="DexLatentWorld architecture"
+           onerror="this.parentNode.classList.add('missing')">
+      <div class="slot"><span>Architecture figure</span></div>
+      <figcaption class="note">
+        An inverse dynamics model encodes scene transitions into compact latent actions, which are aligned across
+        embodiments through contrastive learning. The forward dynamics model conditions on the current scene and a
+        sequence of latent actions to predict per-point displacement fields over five future horizons.
+      </figcaption>
     </figure>
+  </section>
 
-    <div class="grid">
+  <!-- Simulation -->
+  <section class="wrap wide">
+    <h2 class="label">Simulation</h2>
+
+    <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; Franka arm with Allegro hand</span></h3>
+    <div class="strips">
       <figure>
-        <img src="assets/img/real/push_tissue_box.jpg" alt="Sharpa Wave hand pushing a tissue box" loading="lazy">
-        <figcaption><span>Push tissue box</span><span class="meta">10 / 10</span></figcaption>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_reach.jpg">
+          <source src="assets/video/sim/robocasa_reach.mp4" type="video/mp4">
+        </video>
+        <figcaption><span>Reach</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/img/real/push_egg_carton.jpg" alt="Sharpa Wave hand pushing an egg carton" loading="lazy">
-        <figcaption><span>Push egg carton</span><span class="meta">9 / 10</span></figcaption>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_grasp.jpg">
+          <source src="assets/video/sim/robocasa_grasp.mp4" type="video/mp4">
+        </video>
+        <figcaption><span>Grasp</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/img/real/grasp_cup.jpg" alt="Sharpa Wave hand grasping a paper cup" loading="lazy">
-        <figcaption><span>Grasp and lift cup</span><span class="meta">7 / 10</span></figcaption>
-      </figure>
-      <!-- TODO: add the bottle image and uncomment.
-      <figure>
-        <img src="assets/img/real/grasp_bottle.jpg" alt="Sharpa Wave hand grasping a bottle" loading="lazy">
-        <figcaption><span>Grasp bottle</span><span class="meta">9 / 10</span></figcaption>
-      </figure>
-      -->
-      <figure>
-        <img src="assets/img/real/grasp_scarf.jpg" alt="Sharpa Wave hand grasping a scarf" loading="lazy">
-        <figcaption><span>Grasp scarf</span><span class="meta">8 / 10</span></figcaption>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_place.jpg">
+          <source src="assets/video/sim/robocasa_place.mp4" type="video/mp4">
+        </video>
+        <figcaption><span>Place</span></figcaption>
       </figure>
     </div>
+
+    <h3 class="sub">Gripper Manipulation <span>RoboSuite &middot; Franka Panda, grippers unseen during training</span></h3>
+    <!-- TODO: for each tile, replace <div class="slot">...</div> with
+         <video autoplay muted loop playsinline preload="metadata"><source src="assets/video/sim/gripper_XXX.mp4" type="video/mp4"></video>
+    -->
+    <div class="grid two">
+      <figure>
+        <div class="slot"><span>Coming soon</span></div>
+        <figcaption><span>Reach + Push Puck</span><span class="meta">Wiping gripper</span></figcaption>
+      </figure>
+      <figure>
+        <div class="slot"><span>Coming soon</span></div>
+        <figcaption><span>Push Cube</span><span class="meta">Wiping gripper</span></figcaption>
+      </figure>
+      <figure>
+        <div class="slot"><span>Coming soon</span></div>
+        <figcaption><span>Milk Transport</span><span class="meta">Robotiq 140</span></figcaption>
+      </figure>
+      <figure>
+        <div class="slot"><span>Coming soon</span></div>
+        <figcaption><span>Cube Stacking</span><span class="meta">Robotiq 140</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Real world -->
+  <section class="wrap wide">
+    <h2 class="label">Real-World Demonstrations</h2>
+    <!-- TODO: replace the slot with real-world videos. -->
+    <div class="slot banner"><span>Coming soon</span></div>
   </section>
 
   <!-- Citation -->
@@ -133,7 +162,8 @@
 <pre><code id="bibtex">@article{dexlatentworld2026,
   title   = {DexLatentWorld: 3D Cross-Embodiment Latent Action World
              Models for Zero-Shot Robotic Manipulation},
-  author  = {Anonymous},
+  author  = {Mohan, Vinay Udit and Huang, Xuchuan and
+             Potamias, Rolandos Alexandros},
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
   year    = {2026}
 }</code></pre>
