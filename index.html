@@ -97,55 +97,61 @@
   <section class="wrap wide">
     <h2 class="label">Simulation</h2>
 
-    <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; Franka arm with Allegro hand</span></h3>
-    <div class="strips">
+    <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; Franka arm with Allegro hand &middot; 2&times; speed</span></h3>
+    <div class="grid three">
       <figure>
         <h4 class="task">Reach</h4>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_reach.jpg">
-          <source src="assets/video/sim/robocasa_reach.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_reach.jpg">
+          <source src="assets/video/sim/dex_reach.mp4" type="video/mp4">
         </video>
       </figure>
       <figure>
         <h4 class="task">Grasp</h4>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_grasp.jpg">
-          <source src="assets/video/sim/robocasa_grasp.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_grasp.jpg">
+          <source src="assets/video/sim/dex_grasp.mp4" type="video/mp4">
         </video>
       </figure>
       <figure>
         <h4 class="task">Place</h4>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/robocasa_place.jpg">
-          <source src="assets/video/sim/robocasa_place.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_place.jpg">
+          <source src="assets/video/sim/dex_place.mp4" type="video/mp4">
         </video>
       </figure>
     </div>
 
     <h3 class="sub">Gripper Manipulation <span>RoboSuite &middot; Franka Panda, grippers unseen during training</span></h3>
-    <!-- To add a video, replace the tile's <div class="slot">...</div> with:
-         <video autoplay muted loop playsinline preload="metadata"><source src="assets/video/sim/gripper_NAME.mp4" type="video/mp4"></video>
-         using the NAME noted on each tile. -->
     <div class="grid two">
-      <figure>  <!-- NAME: push_puck -->
+      <figure>
         <h4 class="task">Reach + Push Puck<span>Wiping gripper</span></h4>
-        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/gripper_push_puck.jpg">
+          <source src="assets/video/sim/gripper_push_puck.mp4" type="video/mp4">
+        </video>
       </figure>
-      <figure>  <!-- NAME: push_cube -->
+      <figure>
         <h4 class="task">Push Cube<span>Wiping gripper</span></h4>
-        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/gripper_push_cube.jpg">
+          <source src="assets/video/sim/gripper_push_cube.mp4" type="video/mp4">
+        </video>
       </figure>
-      <figure>  <!-- NAME: milk_transport -->
+      <figure>
         <h4 class="task">Milk Transport<span>Robotiq 140</span></h4>
-        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/gripper_milk_transport.jpg">
+          <source src="assets/video/sim/gripper_milk_transport.mp4" type="video/mp4">
+        </video>
       </figure>
-      <figure>  <!-- NAME: cube_stacking -->
+      <figure>
         <h4 class="task">Cube Stacking<span>Robotiq 140</span></h4>
-        <div class="slot"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/gripper_cube_stacking.jpg">
+          <source src="assets/video/sim/gripper_cube_stacking.mp4" type="video/mp4">
+        </video>
       </figure>
     </div>
   </section>
 
   <!-- Real world -->
   <section class="wrap wide">
-    <h2 class="label">Real-World Demonstrations</h2>
+    <h2 class="label">Real World</h2>
+    <h3 class="sub">Dexterous Manipulation <span>UR7e arm with Sharpa Wave hand &middot; unseen during training, no fine-tuning</span></h3>
     <!-- TODO: replace the slot with real-world videos. -->
     <div class="slot banner"><span>Coming soon</span></div>
   </section>
