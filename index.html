@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=13">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
 </head>
 <body>
 
@@ -119,24 +119,6 @@
         <button type="button" class="ex-flow on">Point flow</button>
       </div>
       <p class="ex-hint">Drag to orbit &middot; scroll to zoom &middot; right-drag to pan &middot; retargeted training demonstrations (ground truth)</p>
-    </div>
-  </section>
-
-  <!-- Latent space -->
-  <section class="wrap wide">
-    <h2 class="label">The latent action space</h2>
-    <p class="lead">Each dot is one second of motion, encoded into latent actions from one of eleven robot hands. The same motion lands in the same place whichever hand performs it. Click a region to see three transitions from it: three different hands, three different objects.</p>
-    <div id="latentmap" class="latentmap">
-      <div class="lm-map">
-        <canvas aria-label="Map of latent actions"></canvas>
-        <p class="lm-legend"></p>
-        <p class="lm-foot">UMAP of 9,042 latent actions from held-out demonstrations &middot; * hands unseen in training</p>
-      </div>
-      <div class="lm-side">
-        <div class="lm-head"><h3 class="lm-title"></h3><p class="lm-text"></p></div>
-        <div class="lm-stage"><p class="lm-labels"></p></div>
-        <p class="lm-foot">A: a transition from the region. B, C: the two closest to A in latent space on a different object. One second each, slowed &middot; retargeted demonstrations (ground truth) &middot; drag to orbit</p>
-      </div>
     </div>
   </section>
 
@@ -268,7 +250,6 @@
 <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="assets/js/explorer.js?v=6"></script>
-<script src="assets/js/latentmap.js?v=7"></script>
 <script>
   // Simulation gallery: the featured clip first, then the other successful episodes (assets/video/sim/gallery); clicking one plays it above.
   var GALLERY = {"reach": ["reach_131", "reach_133", "reach_146", "reach_170", "reach_322", "reach_606", "reach_665", "reach_686", "reach_739", "reach_793", "reach_814", "reach_831", "reach_907", "reach_952", "reach_1076", "reach_1142", "reach_1208", "reach_1311", "reach_1341", "reach_1364"], "grasp": ["grasp_118", "grasp_131", "grasp_133", "grasp_665", "grasp_686", "grasp_731", "grasp_769", "grasp_793", "grasp_870", "grasp_907", "grasp_952", "grasp_1008", "grasp_1076", "grasp_1142", "grasp_1207", "grasp_1208", "grasp_1311", "grasp_1341"], "place": ["place_118", "place_133", "place_686", "place_731", "place_907", "place_1008", "place_1076", "place_1142", "place_1341"]};
