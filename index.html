@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
 <body>
 
@@ -89,6 +89,37 @@
         sequence of latent actions to predict per-point displacement fields over five future horizons.
       </figcaption>
     </figure>
+  </section>
+
+  <!-- Data -->
+  <section class="wrap wide">
+    <h2 class="label">Data</h2>
+    <p class="lead">Human demonstrations retargeted to eight robot hands and represented as 3D particles: the same motion, in nine embodiments.</p>
+    <p class="stats"><span><b>9</b> embodiments</span><span><b>92</b> demonstration sequences</span><span><b>41,094</b> training transitions</span></p>
+    <h3 class="strip-label">Particles</h3>
+    <div class="strip" data-kind="particles"><div class="strip-track"></div></div>
+    <h3 class="strip-label">Point flow</h3>
+    <div class="strip rev" data-kind="flow"><div class="strip-track"></div></div>
+  </section>
+
+  <!-- 3D explorer -->
+  <section class="wrap wide">
+    <h2 class="label">Explore the demonstrations in 3D</h2>
+    <p class="lead">One demonstration, several embodiments. Pick a demonstration and a hand; the coloured trails show how each particle has moved over the last second.</p>
+    <div id="explorer" class="explorer">
+      <div class="ex-bar">
+        <div class="ex-group"><span>Demonstration</span><div class="ex-clips"></div></div>
+        <div class="ex-group"><span>Embodiment</span><div class="ex-hands"></div></div>
+      </div>
+      <div class="ex-stage"><p class="ex-note"></p></div>
+      <div class="ex-bar ex-foot">
+        <button type="button" class="ex-play">Pause</button>
+        <input type="range" class="ex-time" min="0" max="1000" value="0" aria-label="Time">
+        <span class="ex-clock">0.0 s</span>
+        <button type="button" class="ex-flow on">Point flow</button>
+      </div>
+      <p class="ex-hint">Drag to orbit &middot; scroll to zoom &middot; right-drag to pan &middot; retargeted training demonstrations (ground truth)</p>
+    </div>
   </section>
 
   <!-- Simulation -->
@@ -199,6 +230,27 @@
 <footer class="wrap">
   <p>DexLatentWorld</p>
 </footer>
+
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="assets/js/explorer.js?v=4"></script>
+<script>
+  // Data strip: [clip number, hand]; even numbers are particle clips, odd numbers point-flow clips (assets/video/data).
+  var STRIP = [[0, 'Human'], [1, 'Ability'], [2, 'Allegro'], [3, 'Inspire'], [4, 'LEAP'], [5, 'OYMotion'], [6, 'Shadow'], [7, 'Wuji'], [8, 'XHand'], [9, 'Human'], [10, 'Ability'], [11, 'Allegro'], [12, 'Inspire'], [13, 'LEAP'], [14, 'OYMotion'], [15, 'Shadow'], [16, 'Wuji'], [17, 'XHand'], [18, 'Human'], [19, 'Ability'], [20, 'Allegro'], [21, 'Inspire'], [22, 'LEAP'], [23, 'OYMotion'], [24, 'Shadow'], [25, 'Wuji'], [26, 'XHand'], [27, 'Human']];
+  document.querySelectorAll('.strip').forEach(function (strip) {
+    var kind = strip.dataset.kind, track = strip.querySelector('.strip-track');
+    var clips = STRIP.filter(function (c) { return (c[0] % 2 === 0) === (kind === 'particles'); });
+    var html = clips.map(function (c) {
+      var n = kind + '_' + String(c[0]).padStart(2, '0');
+      return '<figure class="tile"><video muted loop playsinline preload="none" poster="assets/video/data/' + n + '.jpg"><source src="assets/video/data/' + n + '.mp4" type="video/mp4"></video><span>' + c[1] + '</span></figure>';
+    }).join('');
+    track.innerHTML = html + html;                                    // two copies: the row loops without a seam
+    track.style.animationDuration = clips.length * 6 + 's';
+  });
+  // clips play only while on screen
+  var seen = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.play().catch(function () {}); else e.target.pause(); }); }, { rootMargin: '80px' });
+  document.querySelectorAll('.strip video').forEach(function (v) { seen.observe(v); });
+</script>
 
 <script>
   // Results charts. One colour per experiment for our method, grey for the baseline it is compared with. Each task: label, then one value per series (null = not evaluated); counts are successes / trials.

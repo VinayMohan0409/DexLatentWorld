@@ -391,3 +391,52 @@ figcaption.note {
 /* side by side on anything wider than a phone; the plots scale with their column */
 @media (max-width: 900px) { .charts { gap: 16px; } .chart .sub { font-size: 16px; } .chart .sub span { font-size: 12px; min-height: 3.4em; } .legend { font-size: 11.5px; gap: 10px; } .chart-n { font-size: 10px; letter-spacing: 0.1em; } }
 @media (max-width: 560px) { .charts { grid-template-columns: 1fr; gap: 44px; max-width: 460px; margin: 0 auto; } .chart .sub { font-size: 19px; } .chart .sub span { font-size: 14px; min-height: 0; } .legend { font-size: 13px; } .chart-n { font-size: 12px; } }
+
+/* ---------- Data strip ---------- */
+
+.stats { display: flex; flex-wrap: wrap; gap: 8px 36px; margin: -6px 0 30px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.stats b { margin-right: 8px; font-size: 22px; font-weight: 500; letter-spacing: 0; color: var(--navy); }
+.strip-label { margin: 0 0 10px; font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-2); }
+.strip + .strip-label { margin-top: 26px; }
+.strip {
+  overflow: hidden;
+  padding: 8px 0;                 /* room for the hovered tile to grow */
+  margin: -8px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.strip-track { display: flex; gap: 14px; width: max-content; animation: strip-drift 60s linear infinite; }
+.strip.rev .strip-track { animation-direction: reverse; }
+.strip:hover .strip-track { animation-play-state: paused; }
+@keyframes strip-drift { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 7px)); } }
+.tile { position: relative; flex: none; width: 224px; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: var(--paper); transition: transform 180ms ease, border-color 180ms ease; }
+.tile video { display: block; width: 100%; aspect-ratio: 4 / 3; background: var(--paper); }
+.tile span { position: absolute; left: 10px; bottom: 8px; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-2); }
+.tile:hover { transform: scale(1.04); border-color: var(--navy); z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .strip { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .strip-track { animation: none; } }
+@media (max-width: 600px) { .tile { width: 168px; } }
+
+/* ---------- 3D explorer ---------- */
+
+.explorer { border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: var(--paper); }
+.ex-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding: 14px 18px; border-bottom: 1px solid var(--rule); }
+.ex-foot { border-bottom: 0; border-top: 1px solid var(--rule); gap: 14px; }
+.ex-group { display: flex; align-items: center; gap: 12px; }
+.ex-group > span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
+.ex-clips, .ex-hands { display: flex; flex-wrap: wrap; gap: 6px; }
+.explorer button {
+  padding: 6px 13px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); color: var(--ink-2);
+  font-family: var(--sans); font-size: 13px; cursor: pointer; transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+.explorer button:hover { border-color: var(--ink-3); color: var(--ink); }
+.explorer button.on { border-color: var(--navy); background: var(--navy); color: var(--paper); }
+.explorer button i { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 50%; }
+.ex-stage { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(#ffffff, #f4f6f9); cursor: grab; touch-action: none; }
+.ex-stage:active { cursor: grabbing; }
+.ex-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ex-note { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); pointer-events: none; }
+.explorer.is-loading .ex-note::after { content: "Loading"; }
+.ex-time { flex: 1; min-width: 120px; accent-color: var(--navy); }
+.ex-clock { width: 46px; font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ex-hint { margin: 0; padding: 10px 18px 12px; border-top: 1px solid var(--rule); font-size: 12px; letter-spacing: 0.08em; color: var(--ink-3); }
+@media (max-width: 600px) { .ex-stage { aspect-ratio: 4 / 3; } .ex-bar { gap: 10px 16px; padding: 12px; } }

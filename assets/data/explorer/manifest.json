@@ -1,0 +1,116 @@
+{
+ "step_seconds": 0.1,
+ "frames": 61,
+ "hand_points": 1024,
+ "object_points": 512,
+ "hands": [
+  {
+   "key": "human",
+   "name": "Human",
+   "color": [
+    20,
+    160,
+    105
+   ]
+  },
+  {
+   "key": "Allegro",
+   "name": "Allegro",
+   "color": [
+    212,
+    95,
+    150
+   ]
+  },
+  {
+   "key": "Inspire",
+   "name": "Inspire",
+   "color": [
+    150,
+    105,
+    30
+   ]
+  },
+  {
+   "key": "Xhand",
+   "name": "XHand",
+   "color": [
+    25,
+    150,
+    135
+   ]
+  }
+ ],
+ "clips": [
+  {
+   "dir": "clip0",
+   "name": "Espresso",
+   "sequence": "subject1/o1/7",
+   "first_frame": 210,
+   "scale": 0.45632963287621303,
+   "table_points": 763,
+   "distractor_points": 168,
+   "view": [
+    0.4635,
+    -0.0,
+    0.8861
+   ]
+  },
+  {
+   "dir": "clip1",
+   "name": "Lotion",
+   "sequence": "subject3/o2/3",
+   "first_frame": 315,
+   "scale": 0.5088806025105789,
+   "table_points": 755,
+   "distractor_points": 500,
+   "view": [
+    0.4119,
+    -0.0,
+    0.9112
+   ]
+  },
+  {
+   "dir": "clip2",
+   "name": "Spray",
+   "sequence": "subject3/o2/5",
+   "first_frame": 225,
+   "scale": 0.45788064727334593,
+   "table_points": 787,
+   "distractor_points": 0,
+   "view": [
+    0.4911,
+    -0.0,
+    0.8711
+   ]
+  },
+  {
+   "dir": "clip3",
+   "name": "Chips",
+   "sequence": "subject3/k1/4",
+   "first_frame": 75,
+   "scale": 0.48559261153329863,
+   "table_points": 691,
+   "distractor_points": 500,
+   "view": [
+    0.3347,
+    0.0,
+    0.9423
+   ]
+  },
+  {
+   "dir": "clip4",
+   "name": "Cocoa",
+   "sequence": "subject3/o2/6",
+   "first_frame": 225,
+   "scale": 0.5093676984247006,
+   "table_points": 638,
+   "distractor_points": 500,
+   "view": [
+    0.2714,
+    0.0,
+    0.9625
+   ]
+  }
+ ]
+}
