@@ -145,17 +145,17 @@
     <p class="chart-note">Success rate (%). DexWM: results reported by its authors. PointWorld was not evaluated on the two pushing tasks.</p>
     <div class="charts two">
       <figure class="chart" data-chart="intervention">
-        <h3 class="sub">Latent Intervention <span>Prediction error of moving particles &middot; lower is better</span></h3>
+        <h3 class="sub">Latent Conditioning <span>End-point error of moving particles &middot; lower is better</span></h3>
         <div class="plot"></div>
-        <p class="chart-n">4,000 validation windows</p>
+        <p class="chart-n">H2O validation split</p>
       </figure>
       <figure class="chart" data-chart="planspace">
-        <h3 class="sub">Search Space and Execution <span>RoboCasa &middot; same checkpoint and search budget</span></h3>
+        <h3 class="sub">Planning and Execution <span>RoboCasa &middot; same world model, episodes and planning budget</span></h3>
         <div class="plot"></div>
         <p class="chart-n">20 episodes per task</p>
       </figure>
     </div>
-    <p class="chart-note">Left: mean error over the five predicted steps (mm) when the forward model is given the correct latent actions, or zero, fixed or shuffled ones; no motion predicts that nothing moves. Right: success rate (%) when the planner searches over latent actions or over robot actions, and the result is executed through the hand fit (IK) or directly.</p>
+    <p class="chart-note">Left: mean error over the five predicted steps (mm) when the forward model is given the correct latent actions, or zeroed, fixed or shuffled ones; no motion assumes zero displacement. Right: success rate (%) when planning searches latent actions or native robot actions, executed through inverse kinematics on the predicted points, directly, or through a learned latent-to-action decoder.</p>
   </section>
 
   <!-- Simulation -->
@@ -252,7 +252,7 @@
 <script src="assets/js/explorer.js?v=6"></script>
 <script>
   // Simulation gallery: the featured clip first, then the other successful episodes (assets/video/sim/gallery); clicking one plays it above.
-  var GALLERY = {"reach": ["reach_131", "reach_133", "reach_146", "reach_170", "reach_322", "reach_606", "reach_665", "reach_686", "reach_739", "reach_793", "reach_814", "reach_831", "reach_907", "reach_952", "reach_1076", "reach_1142", "reach_1208", "reach_1311", "reach_1341", "reach_1364"], "grasp": ["grasp_118", "grasp_131", "grasp_133", "grasp_665", "grasp_686", "grasp_731", "grasp_769", "grasp_793", "grasp_870", "grasp_907", "grasp_952", "grasp_1008", "grasp_1076", "grasp_1142", "grasp_1207", "grasp_1208", "grasp_1311", "grasp_1341"], "place": ["place_118", "place_133", "place_686", "place_731", "place_907", "place_1008", "place_1076", "place_1142", "place_1341"]};
+  var GALLERY = {"reach": ["reach_131", "reach_133", "reach_146", "reach_170", "reach_322", "reach_606", "reach_665", "reach_686", "reach_739", "reach_793", "reach_814", "reach_831", "reach_907", "reach_952", "reach_1076", "reach_1142", "reach_1208", "reach_1311", "reach_1341", "reach_1364"], "grasp": ["grasp_118", "grasp_131", "grasp_133", "grasp_665", "grasp_686", "grasp_731", "grasp_769", "grasp_793", "grasp_870", "grasp_907", "grasp_952", "grasp_1008", "grasp_1076", "grasp_1142", "grasp_1207", "grasp_1208", "grasp_1311", "grasp_1341"], "place": ["place_118", "place_133", "place_170", "place_686", "place_731", "place_870", "place_907", "place_1008", "place_1076", "place_1142", "place_1311", "place_1341"]};
   document.querySelectorAll('.thumbs').forEach(function (row) {
     var task = row.dataset.task, video = row.parentElement.querySelector('video');
     var items = [{ src: 'assets/video/sim/dex_' + task + '.mp4', img: 'assets/img/sim/dex_' + task + '.jpg' }].concat(GALLERY[task].map(function (n) { return { src: 'assets/video/sim/gallery/' + n + '.mp4', img: 'assets/video/sim/gallery/' + n + '.jpg' }; }));
@@ -294,9 +294,9 @@
       ['Milk Transport', [100, 100], ['10 / 10', '10 / 10']], ['Cube Stacking', [100, 100], ['10 / 10', '10 / 10']] ] },
     dexwm: { series: ['Ours', 'DexWM (reported)'], color: '#1f7f7a', tasks: [
       ['Reach', [90, 72], ['45 / 50', null]], ['Grasp', [92, 58], ['46 / 50', null]], ['Place', [60, 28], ['30 / 50', null]] ] },
-    intervention: { series: ['Error'], unit: ' mm', max: 80, ticks: [0, 20, 40, 60, 80], w: 400, barColors: ['#1d3f94', '#a9aeb7', '#a9aeb7', '#a9aeb7', '#a9aeb7'], tasks: [
-      ['Correct latent', [9.4], [null]], ['Zero latent', [50.6], [null]], ['No motion', [50.7], [null]], ['Fixed latent', [56.7], [null]], ['Shuffled latent', [68.9], [null]] ] },
-    planspace: { series: ['Action search \u00b7 IK', 'Action search \u00b7 direct', 'Latent search \u00b7 IK', 'Latent search \u00b7 decoder'], colors: ['#a9aeb7', '#6b7280', '#1d3f94', '#6f93e6'], w: 560, tasks: [
+    intervention: { series: ['Hand', 'Object'], colors: ['#1d3f94', '#6f93e6'], unit: ' mm', max: 80, ticks: [0, 20, 40, 60, 80], w: 440, tasks: [
+      ['Correct latents', [7.9, 13.6], [null, null]], ['Zero latents', [53.2, 43.4], [null, null]], ['No motion', [53.3, 43.7], [null, null]], ['Fixed latents', [60.3, 46.8], [null, null]], ['Shuffled latents', [75.0, 52.0], [null, null]] ] },
+    planspace: { series: ['Action\u2013IK', 'Action\u2013Direct', 'Latent\u2013IK (ours)', 'Latent\u2013Decoder'], colors: ['#a9aeb7', '#6b7280', '#1d3f94', '#6f93e6'], w: 560, tasks: [
       ['Reach', [100, 100, 100, 100], ['20 / 20', '20 / 20', '20 / 20', '20 / 20']], ['Grasp', [85, 85, 90, 85], ['17 / 20', '17 / 20', '18 / 20', '17 / 20']], ['Place', [60, 60, 60, 80], ['12 / 20', '12 / 20', '12 / 20', '16 / 20']] ] },
     real: { series: ['Ours'], color: '#a5542f', tasks: [
       ['Push tissue box', [100], ['10 / 10']], ['Push egg carton', [90], ['9 / 10']], ['Grasp and lift cup', [70], ['7 / 10']],
