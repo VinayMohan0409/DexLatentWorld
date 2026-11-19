@@ -6,8 +6,8 @@
   var root = document.getElementById('latentmap');
   if (!root) return;
   var BASE = 'assets/data/latent/', cv = root.querySelector('.lm-map canvas'), ctx = cv.getContext('2d'), stage = root.querySelector('.lm-stage');
-  var legend = root.querySelector('.lm-legend'), title = root.querySelector('.lm-title'), handBar = root.querySelector('.lm-hands'), labels = root.querySelector('.lm-labels');
-  var M = null, hover = -1, sel = 0, hsel = 1, cur = null, t = 0, last = 0, visible = false, S = 1, PAD = 26, token = 0;
+  var legend = root.querySelector('.lm-legend'), title = root.querySelector('.lm-title'), note = root.querySelector('.lm-text'), labels = root.querySelector('.lm-labels');
+  var M = null, hover = -1, sel = 7, cur = null, t = 0, last = 0, visible = false, S = 1, PAD = 26, token = 0;
   var OBJECT = 0xf09600, SCENE = 0xb4bccd, TRAIL = 8, TP = 110, NV = 3;
 
   // ---------- map ----------
@@ -41,7 +41,7 @@
   }
   cv.addEventListener('mousemove', function (ev) { var k = regionAt(ev); if (k !== hover) { hover = k; drawMap(); } });
   cv.addEventListener('mouseleave', function () { hover = -1; drawMap(); });
-  cv.addEventListener('click', function (ev) { choose(regionAt(ev), hsel); });
+  cv.addEventListener('click', function (ev) { choose(regionAt(ev)); });
 
   // ---------- 3D: one canvas, three transitions side by side on the chosen embodiment ----------
   var ok = window.THREE && THREE.OrbitControls && (function () { var c = document.createElement('canvas'); return !!(c.getContext('webgl') || c.getContext('experimental-webgl')); })();
@@ -65,18 +65,18 @@
   function size() { if (!renderer) return; renderer.setSize(stage.clientWidth, stage.clientHeight, false); }
   var cache = {};
   function load(u) { if (!cache[u]) cache[u] = fetch(BASE + u).then(function (r) { if (!r.ok) throw new Error(u); return r.arrayBuffer(); }).then(function (b) { return new Int16Array(b); }); return cache[u]; }
-  function choose(k, h) {
-    sel = k; hsel = h; var R = M.regions[k], E = M.embodiments[h], my = ++token;
+  function choose(k) {
+    sel = k; var R = M.regions[k], my = ++token;
     title.innerHTML = 'Region ' + R.n + ' <span>' + R.windows + ' transitions &times; ' + M.embodiments.length + ' embodiments</span>';
-    handBar.querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('on', i === h); });
-    labels.querySelectorAll('span').forEach(function (s, i) { s.innerHTML = '<b>' + 'ABC'[i] + '</b> ' + R.motions[i].object + (i ? ' <em>nearest in latent space</em>' : ' <em>middle of the region</em>'); });
+    note.textContent = R.text;
+    labels.querySelectorAll('span').forEach(function (s, i) { var e = M.embodiments[R.motions[i].hand]; s.innerHTML = '<b>' + 'ABC'[i] + '</b> ' + e.name + (e.held_out ? '*' : '') + ' <em>' + R.motions[i].object + '</em>'; });
     drawMap(); if (!ok) return;
     root.classList.add('is-loading');
-    Promise.all(R.motions.map(function (m) { return Promise.all([load(m.id + '_' + E.key + '.bin'), load(m.id + '_scene.bin')]); })).then(function (a) {
+    Promise.all(R.motions.map(function (m) { return Promise.all([load(m.id + '_' + M.embodiments[m.hand].key + '.bin'), load(m.id + '_scene.bin')]); })).then(function (a) {
       if (my !== token) return;
       var n = M.hand_points + M.object_points, i, ax, maxRad = 0; cur = { tracks: [], s: [] }; t = 0;
       a.forEach(function (pair, vi) {
-        var m = R.motions[vi], s = m.scale / 32767, src = pair[0], rest = pair[1], v = views[vi], lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9];
+        var m = R.motions[vi], E = M.embodiments[m.hand], s = m.scale / 32767, src = pair[0], rest = pair[1], v = views[vi], lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9];
         cur.tracks.push(src); cur.s.push(s); v.hand.material.color.setRGB(E.color[0] / 255, E.color[1] / 255, E.color[2] / 255);
         var p = new Float32Array(rest.length); for (i = 0; i < rest.length; i++) p[i] = rest[i] * s; v.rest.geometry.setAttribute('position', new THREE.BufferAttribute(p, 3)); v.rest.visible = rest.length > 0;
         for (i = 0; i + 2 < src.length; i += 15) for (ax = 0; ax < 3; ax++) { var val = src[i + ax] * s; if (val < lo[ax]) lo[ax] = val; if (val > hi[ax]) hi[ax] = val; }
@@ -84,7 +84,7 @@
         v.group.rotation.set(0, 0, -ang); v.group.position.set(-(ca * ctr[0] - sa * ctr[1]), -(sa * ctr[0] + ca * ctr[1]), -ctr[2]);      // recording camera along +x, motion centred
         maxRad = Math.max(maxRad, 0.5 * Math.hypot(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]));
       });
-      var asp = Math.min(1, stage.clientWidth / NV / stage.clientHeight), dist = Math.max(0.4, maxRad / (Math.tan(17 * Math.PI / 180) * asp) * 0.9), el = 0.6;
+      var asp = Math.min(1, stage.clientWidth / NV / stage.clientHeight), dist = Math.max(0.4, maxRad / (Math.tan(17 * Math.PI / 180) * asp) * 0.76), el = 0.6;
       camera.position.set(dist * Math.cos(el), 0, dist * Math.sin(el)); controls.target.set(0, 0, 0); controls.update();
       root.classList.remove('is-loading'); drawMap();
     }).catch(function () { root.classList.add('is-static'); });
@@ -93,7 +93,7 @@
     requestAnimationFrame(frame);
     if (!visible || !cur || !renderer || cur.tracks.length < NV) { last = now; return; }
     var dt = Math.min(0.1, (now - last) / 1000); last = now; var F = M.frames, hold = 0.6 / M.step_seconds;
-    t += dt / M.step_seconds * 0.6; if (t > F - 1 + hold) t = 0;            // 0.6x speed, short hold on the last frame
+    t += dt / M.step_seconds * 0.45; if (t > F - 1 + hold) t = 0;            // slowed (one second shown over about two), short hold on the last frame
     var tt = Math.min(F - 1.0001, t), f0 = Math.floor(tt), a = tt - f0, nh = M.hand_points, no = M.object_points, n = nh + no, i, col3 = new THREE.Color();
     views.forEach(function (v, vi) {
       var src = cur.tracks[vi], s = cur.s[vi], o0 = f0 * n * 3, o1 = (f0 + 1) * n * 3, hp = v.hand.geometry.attributes.position.array, op = v.object.geometry.attributes.position.array;
@@ -120,11 +120,10 @@
     M = m;
     M.embodiments.forEach(function (e, i) {
       var s = document.createElement('span'); s.innerHTML = '<i style="background:rgb(' + e.color.join(',') + ')"></i>' + e.name + (e.held_out ? '*' : ''); legend.appendChild(s);
-      var b = document.createElement('button'); b.type = 'button'; b.innerHTML = '<i style="background:rgb(' + e.color.join(',') + ')"></i>' + e.name + (e.held_out ? '*' : ''); b.addEventListener('click', function () { choose(sel, i); }); handBar.appendChild(b);
     });
     if (ok) initGL(); else root.classList.add('is-static');
-    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible && !cur) choose(sel, hsel); }, { rootMargin: '200px' }).observe(root);
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible && !cur) choose(sel); }, { rootMargin: '200px' }).observe(root);
     drawMap(); requestAnimationFrame(frame);
-    root.__latent = { choose: choose, state: function () { return [sel, hsel, !!cur && cur.tracks.length]; } };
+    root.__latent = { choose: choose, state: function () { return [sel, !!cur && cur.tracks.length]; } };
   }).catch(function () { root.classList.add('is-static'); });
 })();

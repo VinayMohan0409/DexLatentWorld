@@ -488,3 +488,12 @@ figcaption.note {
 .charts.two { grid-template-columns: 0.72fr 1fr; margin-top: 56px; }
 .charts.two .legend { flex-wrap: wrap; gap: 4px 16px; }
 @media (max-width: 560px) { .charts.two { grid-template-columns: 1fr; } }
+
+/* map and views the same height */
+.latentmap { align-items: stretch; }
+.lm-map, .lm-side { display: flex; flex-direction: column; }
+.lm-map canvas { flex: none; }
+.lm-map .lm-legend { flex: 1; align-content: start; }
+.lm-side .lm-stage { flex: 1; aspect-ratio: auto; min-height: 300px; }
+.lm-head { display: block; }
+.lm-text { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-2); }
