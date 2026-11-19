@@ -59,10 +59,10 @@
       keyv.sort(function (p, q) { return p[0] - q[0]; });
       for (i = 0; i < TRAIL_POINTS; i++) trailCol[keyv[i][1]] = rainbow(i / (TRAIL_POINTS - 1));
       if (resetView) {   // frame the whole motion: centre and radius of the hand and object over the clip, seen from the recording camera's side
-        var lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9], c;
-        [a[0], a[1]].forEach(function (src) { for (i = 0; i + 2 < src.length; i += 21) for (c = 0; c < 3; c++) { var val = src[i + c] * s; if (val < lo[c]) lo[c] = val; if (val > hi[c]) hi[c] = val; } });
+        var lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9], ax;   // (not `c`: that is this call's clip index)
+        [a[0], a[1]].forEach(function (src) { for (i = 0; i + 2 < src.length; i += 21) for (ax = 0; ax < 3; ax++) { var val = src[i + ax] * s; if (val < lo[ax]) lo[ax] = val; if (val > hi[ax]) hi[ax] = val; } });
         var ctr = [(lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2], rad = 0.5 * Math.hypot(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]);
-        var v = info.view, dist = Math.max(0.45, rad / Math.tan(camera.fov * Math.PI / 360) * 0.92), el = 0.62;       // el: elevation, radians
+        var vh = Math.hypot(info.view[0], info.view[1]) || 1, v = [info.view[0] / vh, info.view[1] / vh], dist = Math.max(0.45, rad / Math.tan(camera.fov * Math.PI / 360) * 1.0), el = 0.62;       // el: elevation, radians
         camera.position.set(ctr[0] + v[0] * dist * Math.cos(el), ctr[1] + v[1] * dist * Math.cos(el), ctr[2] + dist * Math.sin(el)); controls.target.set(ctr[0], ctr[1], ctr[2]); controls.update();
       }
       root.classList.remove('is-loading'); buttons(); draw();

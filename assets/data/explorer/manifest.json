@@ -14,6 +14,15 @@
    ]
   },
   {
+   "key": "Ability",
+   "name": "Ability",
+   "color": [
+    228,
+    88,
+    10
+   ]
+  },
+  {
    "key": "Allegro",
    "name": "Allegro",
    "color": [
@@ -32,6 +41,42 @@
    ]
   },
   {
+   "key": "Leap",
+   "name": "LEAP",
+   "color": [
+    20,
+    105,
+    180
+   ]
+  },
+  {
+   "key": "Oymotion",
+   "name": "OYMotion",
+   "color": [
+    178,
+    162,
+    20
+   ]
+  },
+  {
+   "key": "Shadow",
+   "name": "Shadow",
+   "color": [
+    55,
+    155,
+    225
+   ]
+  },
+  {
+   "key": "Wuji",
+   "name": "Wuji",
+   "color": [
+    92,
+    62,
+    165
+   ]
+  },
+  {
    "key": "Xhand",
    "name": "XHand",
    "color": [
@@ -47,9 +92,9 @@
    "name": "Espresso",
    "sequence": "subject1/o1/7",
    "first_frame": 210,
-   "scale": 0.45632963287621303,
-   "table_points": 763,
-   "distractor_points": 168,
+   "scale": 0.8991468305874063,
+   "table_points": 2048,
+   "distractor_points": 2500,
    "view": [
     0.4635,
     -0.0,
@@ -61,9 +106,9 @@
    "name": "Lotion",
    "sequence": "subject3/o2/3",
    "first_frame": 315,
-   "scale": 0.5088806025105789,
-   "table_points": 755,
-   "distractor_points": 500,
+   "scale": 0.8998117992341077,
+   "table_points": 2048,
+   "distractor_points": 2500,
    "view": [
     0.4119,
     -0.0,
@@ -75,11 +120,11 @@
    "name": "Spray",
    "sequence": "subject3/o2/5",
    "first_frame": 225,
-   "scale": 0.45788064727334593,
-   "table_points": 787,
-   "distractor_points": 0,
+   "scale": 0.8916196482690201,
+   "table_points": 2048,
+   "distractor_points": 2500,
    "view": [
-    0.4911,
+    0.4912,
     -0.0,
     0.8711
    ]
@@ -89,11 +134,11 @@
    "name": "Chips",
    "sequence": "subject3/k1/4",
    "first_frame": 75,
-   "scale": 0.48559261153329863,
-   "table_points": 691,
-   "distractor_points": 500,
+   "scale": 1.0302732058662938,
+   "table_points": 2045,
+   "distractor_points": 2500,
    "view": [
-    0.3347,
+    0.3348,
     0.0,
     0.9423
    ]
@@ -103,9 +148,9 @@
    "name": "Cocoa",
    "sequence": "subject3/o2/6",
    "first_frame": 225,
-   "scale": 0.5093676984247006,
-   "table_points": 638,
-   "distractor_points": 500,
+   "scale": 1.0038504344110764,
+   "table_points": 2048,
+   "distractor_points": 2500,
    "view": [
     0.2714,
     0.0,

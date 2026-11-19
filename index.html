@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -122,6 +122,24 @@
     </div>
   </section>
 
+  <!-- Latent space -->
+  <section class="wrap wide">
+    <h2 class="label">The latent action space</h2>
+    <p class="lead">Each dot is the latent action of one transition, encoded from one of eleven robot hands. The same motion lands in the same place whichever hand performs it. Click a region to see a transition from it on three hands.</p>
+    <div id="latentmap" class="latentmap">
+      <div class="lm-map">
+        <canvas aria-label="Map of latent actions"></canvas>
+        <p class="lm-legend"></p>
+        <p class="lm-foot">UMAP of 9,042 latent actions from held-out demonstrations &middot; * hands unseen in training</p>
+      </div>
+      <div class="lm-side">
+        <div class="lm-head"><h3 class="lm-title"></h3><div class="lm-picks"></div></div>
+        <div class="lm-stage"><p class="lm-labels"></p></div>
+        <p class="lm-foot">The retargeted demonstration of that transition (ground truth), with one-second point flow &middot; drag to orbit</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Simulation -->
   <section class="wrap wide">
     <h2 class="label">Simulation</h2>
@@ -133,18 +151,21 @@
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_reach.jpg">
           <source src="assets/video/sim/dex_reach.mp4" type="video/mp4">
         </video>
+        <div class="thumbs" data-task="reach" aria-label="More successful reach episodes"></div>
       </figure>
       <figure>
         <h4 class="task">Grasp</h4>
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_grasp.jpg">
           <source src="assets/video/sim/dex_grasp.mp4" type="video/mp4">
         </video>
+        <div class="thumbs" data-task="grasp" aria-label="More successful grasp episodes"></div>
       </figure>
       <figure>
         <h4 class="task">Place</h4>
         <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_place.jpg">
           <source src="assets/video/sim/dex_place.mp4" type="video/mp4">
         </video>
+        <div class="thumbs" data-task="place" aria-label="More successful place episodes"></div>
       </figure>
     </div>
 
@@ -233,7 +254,26 @@
 
 <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-<script src="assets/js/explorer.js?v=4"></script>
+<script src="assets/js/explorer.js?v=6"></script>
+<script src="assets/js/latentmap.js?v=3"></script>
+<script>
+  // Simulation gallery: the featured clip first, then the other successful episodes (assets/video/sim/gallery); clicking one plays it above.
+  var GALLERY = {"reach": ["reach_131", "reach_133", "reach_146", "reach_170", "reach_322", "reach_606", "reach_665", "reach_686", "reach_739", "reach_793", "reach_814", "reach_831", "reach_907", "reach_952", "reach_1076", "reach_1142", "reach_1208", "reach_1311", "reach_1341", "reach_1364"], "grasp": ["grasp_118", "grasp_131", "grasp_133", "grasp_665", "grasp_686", "grasp_731", "grasp_769", "grasp_793", "grasp_870", "grasp_907", "grasp_952", "grasp_1008", "grasp_1076", "grasp_1142", "grasp_1207", "grasp_1208", "grasp_1311", "grasp_1341"], "place": ["place_118", "place_133", "place_686", "place_731", "place_907", "place_1008", "place_1076", "place_1142", "place_1341"]};
+  document.querySelectorAll('.thumbs').forEach(function (row) {
+    var task = row.dataset.task, video = row.parentElement.querySelector('video');
+    var items = [{ src: 'assets/video/sim/dex_' + task + '.mp4', img: 'assets/img/sim/dex_' + task + '.jpg' }].concat(GALLERY[task].map(function (n) { return { src: 'assets/video/sim/gallery/' + n + '.mp4', img: 'assets/video/sim/gallery/' + n + '.jpg' }; }));
+    items.forEach(function (it, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', task + ' episode ' + (i + 1)); if (!i) b.className = 'on';
+      b.innerHTML = '<img loading="lazy" alt="" src="' + it.img + '">';
+      b.addEventListener('click', function () {
+        row.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+        video.poster = it.img; video.src = it.src; video.load(); video.play().catch(function () {});
+      });
+      row.appendChild(b);
+    });
+  });
+</script>
+
 <script>
   // Data strip: [clip number, hand]; even numbers are particle clips, odd numbers point-flow clips (assets/video/data).
   var STRIP = [[0, 'Human'], [1, 'Ability'], [2, 'Allegro'], [3, 'Inspire'], [4, 'LEAP'], [5, 'OYMotion'], [6, 'Shadow'], [7, 'Wuji'], [8, 'XHand'], [9, 'Human'], [10, 'Ability'], [11, 'Allegro'], [12, 'Inspire'], [13, 'LEAP'], [14, 'OYMotion'], [15, 'Shadow'], [16, 'Wuji'], [17, 'XHand'], [18, 'Human'], [19, 'Ability'], [20, 'Allegro'], [21, 'Inspire'], [22, 'LEAP'], [23, 'OYMotion'], [24, 'Shadow'], [25, 'Wuji'], [26, 'XHand'], [27, 'Human']];
