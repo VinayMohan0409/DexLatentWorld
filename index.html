@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <link rel="stylesheet" href="assets/css/style.css?v=12">
 </head>
 <body>
 
@@ -125,7 +125,7 @@
   <!-- Latent space -->
   <section class="wrap wide">
     <h2 class="label">The latent action space</h2>
-    <p class="lead">Each dot is the latent action of one transition, encoded from one of eleven robot hands. The same motion lands in the same place whichever hand performs it. Click a region to see a transition from it on three hands.</p>
+    <p class="lead">Each dot is the latent action of one transition, encoded from one of eleven robot hands. The same motion lands in the same place whichever hand performs it. Click a region to see three transitions from it on different objects, and choose the hand that performs them.</p>
     <div id="latentmap" class="latentmap">
       <div class="lm-map">
         <canvas aria-label="Map of latent actions"></canvas>
@@ -133,11 +133,48 @@
         <p class="lm-foot">UMAP of 9,042 latent actions from held-out demonstrations &middot; * hands unseen in training</p>
       </div>
       <div class="lm-side">
-        <div class="lm-head"><h3 class="lm-title"></h3><div class="lm-picks"></div></div>
+        <div class="lm-head"><h3 class="lm-title"></h3></div>
+        <div class="lm-hands" aria-label="Embodiment"></div>
         <div class="lm-stage"><p class="lm-labels"></p></div>
-        <p class="lm-foot">The retargeted demonstration of that transition (ground truth), with one-second point flow &middot; drag to orbit</p>
+        <p class="lm-foot">A: a transition from the middle of the region. B, C: the two transitions closest to A in latent space that involve a different object. Retargeted demonstrations (ground truth) &middot; drag to orbit</p>
       </div>
     </div>
+  </section>
+
+  <!-- Results -->
+  <section class="wrap wide">
+    <h2 class="label">Results</h2>
+    <div class="charts">
+      <figure class="chart" data-chart="gripper">
+        <h3 class="sub">Unseen Grippers <span>RoboSuite &middot; zero-shot, no fine-tuning</span></h3>
+        <div class="plot"></div>
+        <p class="chart-n">10 trials per task</p>
+      </figure>
+      <figure class="chart" data-chart="dexwm">
+        <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; task-agnostic adaptation</span></h3>
+        <div class="plot"></div>
+        <p class="chart-n">50 episodes per task</p>
+      </figure>
+      <figure class="chart" data-chart="real">
+        <h3 class="sub">Real World <span>Sharpa Wave hand &middot; zero-shot, no fine-tuning</span></h3>
+        <div class="plot"></div>
+        <p class="chart-n">10 trials per task</p>
+      </figure>
+    </div>
+    <p class="chart-note">Success rate (%). DexWM: results reported by its authors. PointWorld was not evaluated on the two pushing tasks.</p>
+    <div class="charts two">
+      <figure class="chart" data-chart="intervention">
+        <h3 class="sub">Latent Intervention <span>Prediction error of moving particles &middot; lower is better</span></h3>
+        <div class="plot"></div>
+        <p class="chart-n">4,000 validation windows</p>
+      </figure>
+      <figure class="chart" data-chart="planspace">
+        <h3 class="sub">Search Space and Execution <span>RoboCasa &middot; same checkpoint and search budget</span></h3>
+        <div class="plot"></div>
+        <p class="chart-n">20 episodes per task</p>
+      </figure>
+    </div>
+    <p class="chart-note">Left: mean error over the five predicted steps (mm) when the forward model is given the correct latent actions, or zero, fixed or shuffled ones; no motion predicts that nothing moves. Right: success rate (%) when the planner searches over latent actions or over robot actions, and the result is executed through the hand fit (IK) or directly.</p>
   </section>
 
   <!-- Simulation -->
@@ -206,29 +243,6 @@
     <div class="slot banner"><span>Coming soon</span></div>
   </section>
 
-  <!-- Results -->
-  <section class="wrap wide">
-    <h2 class="label">Results</h2>
-    <div class="charts">
-      <figure class="chart" data-chart="gripper">
-        <h3 class="sub">Unseen Grippers <span>RoboSuite &middot; zero-shot, no fine-tuning</span></h3>
-        <div class="plot"></div>
-        <p class="chart-n">10 trials per task</p>
-      </figure>
-      <figure class="chart" data-chart="dexwm">
-        <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; task-agnostic adaptation</span></h3>
-        <div class="plot"></div>
-        <p class="chart-n">50 episodes per task</p>
-      </figure>
-      <figure class="chart" data-chart="real">
-        <h3 class="sub">Real World <span>Sharpa Wave hand &middot; zero-shot, no fine-tuning</span></h3>
-        <div class="plot"></div>
-        <p class="chart-n">10 trials per task</p>
-      </figure>
-    </div>
-    <p class="chart-note">Success rate (%). DexWM: results reported by its authors. PointWorld was not evaluated on the two pushing tasks.</p>
-  </section>
-
   <!-- Citation -->
   <section class="wrap">
     <h2 class="label">Citation</h2>
@@ -255,7 +269,7 @@
 <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="assets/js/explorer.js?v=6"></script>
-<script src="assets/js/latentmap.js?v=3"></script>
+<script src="assets/js/latentmap.js?v=5"></script>
 <script>
   // Simulation gallery: the featured clip first, then the other successful episodes (assets/video/sim/gallery); clicking one plays it above.
   var GALLERY = {"reach": ["reach_131", "reach_133", "reach_146", "reach_170", "reach_322", "reach_606", "reach_665", "reach_686", "reach_739", "reach_793", "reach_814", "reach_831", "reach_907", "reach_952", "reach_1076", "reach_1142", "reach_1208", "reach_1311", "reach_1341", "reach_1364"], "grasp": ["grasp_118", "grasp_131", "grasp_133", "grasp_665", "grasp_686", "grasp_731", "grasp_769", "grasp_793", "grasp_870", "grasp_907", "grasp_952", "grasp_1008", "grasp_1076", "grasp_1142", "grasp_1207", "grasp_1208", "grasp_1311", "grasp_1341"], "place": ["place_118", "place_133", "place_686", "place_731", "place_907", "place_1008", "place_1076", "place_1142", "place_1341"]};
@@ -300,6 +314,10 @@
       ['Milk Transport', [100, 100], ['10 / 10', '10 / 10']], ['Cube Stacking', [100, 100], ['10 / 10', '10 / 10']] ] },
     dexwm: { series: ['Ours', 'DexWM (reported)'], color: '#1f7f7a', tasks: [
       ['Reach', [90, 72], ['45 / 50', null]], ['Grasp', [92, 58], ['46 / 50', null]], ['Place', [60, 28], ['30 / 50', null]] ] },
+    intervention: { series: ['Error'], unit: ' mm', max: 80, ticks: [0, 20, 40, 60, 80], w: 400, barColors: ['#1d3f94', '#a9aeb7', '#a9aeb7', '#a9aeb7', '#a9aeb7'], tasks: [
+      ['Correct latent', [9.4], [null]], ['Zero latent', [50.6], [null]], ['No motion', [50.7], [null]], ['Fixed latent', [56.7], [null]], ['Shuffled latent', [68.9], [null]] ] },
+    planspace: { series: ['Action search \u00b7 IK', 'Action search \u00b7 direct', 'Latent search \u00b7 IK', 'Latent search \u00b7 decoder'], colors: ['#a9aeb7', '#6b7280', '#1d3f94', '#6f93e6'], w: 560, tasks: [
+      ['Reach', [100, 100, 100, 100], ['20 / 20', '20 / 20', '20 / 20', '20 / 20']], ['Grasp', [85, 85, 90, 85], ['17 / 20', '17 / 20', '18 / 20', '17 / 20']], ['Place', [60, 60, 60, 80], ['12 / 20', '12 / 20', '12 / 20', '16 / 20']] ] },
     real: { series: ['Ours'], color: '#a5542f', tasks: [
       ['Push tissue box', [100], ['10 / 10']], ['Push egg carton', [90], ['9 / 10']], ['Grasp and lift cup', [70], ['7 / 10']],
       ['Grasp bottle', [90], ['9 / 10']], ['Grasp scarf', [80], ['8 / 10']] ] }
@@ -318,11 +336,11 @@
     return [s.slice(0, best), s.slice(best + 1)];
   }
   document.querySelectorAll('.chart').forEach(function (fig) {
-    var c = CHARTS[fig.dataset.chart], plot = fig.querySelector('.plot'), COLORS = [c.color, BASELINE];
-    var W = 340, H = 250, L = 30, R = 6, T = 22, B = 46, ph = H - T - B, pw = W - L - R;
+    var c = CHARTS[fig.dataset.chart], plot = fig.querySelector('.plot'), COLORS = c.colors || [c.color, BASELINE], MAX = c.max || 100, UNIT = c.unit || '%';
+    var W = c.w || 340, H = 250, L = 30, R = 6, T = 22, B = 46, ph = H - T - B, pw = W - L - R;
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': fig.querySelector('.sub').firstChild.textContent.trim() + ': success rate per task' });
-    [0, 25, 50, 75, 100].forEach(function (v) {
-      var y = T + ph * (1 - v / 100);
+    (c.ticks || [0, 25, 50, 75, 100]).forEach(function (v) {
+      var y = T + ph * (1 - v / MAX);
       svg.appendChild(el('line', { x1: L, x2: W - R, y1: y, y2: y, class: v ? 'grid' : 'axis' }));
       svg.appendChild(el('text', { x: L - 7, y: y + 4, class: 'tick', 'text-anchor': 'end' }, v));
     });
@@ -333,14 +351,15 @@
       t[1].forEach(function (v, j) {
         var x = x0 + j * (bw + 2);
         if (v == null) { svg.appendChild(el('text', { x: x + bw / 2, y: T + ph - 6, class: 'na', 'text-anchor': 'middle' }, 'n/a')); return; }
-        var h = ph * v / 100, y = T + ph - h, r = Math.min(4, h);
-        var bar = el('path', { fill: COLORS[j], class: 'bar', tabindex: 0,
+        var h = ph * v / MAX, y = T + ph - h, r = Math.min(4, h);
+        var bar = el('path', { fill: c.barColors ? c.barColors[i] : COLORS[j], class: 'bar', tabindex: 0,
           d: 'M' + x + ',' + (T + ph) + 'V' + (y + r) + 'Q' + x + ',' + y + ' ' + (x + r) + ',' + y + 'H' + (x + bw - r) + 'Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + r) + 'V' + (T + ph) + 'Z' });
-        var detail = c.series[j] + ' \u00b7 ' + t[0] + ': ' + v + '%' + (t[2][j] ? ' (' + t[2][j] + ')' : '');
+        var detail = (c.barColors ? '' : c.series[j] + ' \u00b7 ') + t[0] + ': ' + v + UNIT + (t[2][j] ? ' (' + t[2][j] + ')' : '');
         bar.appendChild(el('title', {}, detail));
         function show() { tip.textContent = detail; tip.style.left = (x + bw / 2) / W * 100 + '%'; tip.style.top = y / H * 100 + '%'; tip.classList.add('on'); }
         function hide() { tip.classList.remove('on'); }
         bar.addEventListener('mouseenter', show); bar.addEventListener('mouseleave', hide); bar.addEventListener('focus', show); bar.addEventListener('blur', hide);
+        bar.style.transitionDelay = (120 + i * 90 + j * 60) + 'ms, 0ms';
         svg.appendChild(bar);
         svg.appendChild(el('text', { x: x + bw / 2, y: y - 6, class: 'val', 'text-anchor': 'middle' }, v));
       });
@@ -350,6 +369,9 @@
     if (ns > 1) c.series.forEach(function (name, j) { lg.innerHTML += '<span><i style="background:' + COLORS[j] + '"></i>' + name + '</span>'; });
     fig.insertBefore(lg, plot);
   });
+  // charts grow in the first time they are scrolled into view
+  var grow = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); grow.unobserve(e.target); } }); }, { threshold: 0.35 });
+  document.querySelectorAll('.chart').forEach(function (c, i) { c.style.transitionDelay = i * 120 + 'ms'; grow.observe(c); });
 </script>
 
 <script>
