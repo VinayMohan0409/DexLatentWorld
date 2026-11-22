@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=14">
+  <link rel="stylesheet" href="assets/css/style.css?v=15">
 </head>
 <body>
 
@@ -48,8 +48,8 @@
   <!-- Video -->
   <section class="wrap wide">
     <div class="video-frame">
-      <video controls playsinline preload="metadata" poster="assets/img/video_poster.jpg">
-        <source src="assets/video/overview.mp4" type="video/mp4">
+      <video controls playsinline preload="metadata" poster="assets/img/video_poster.jpg?v=2">
+        <source src="assets/video/overview.mp4?v=2" type="video/mp4">
       </video>
     </div>
   </section>
@@ -220,8 +220,22 @@
   <section class="wrap wide">
     <h2 class="label">Real World</h2>
     <h3 class="sub">Dexterous Manipulation <span>UR7e arm with Sharpa Wave hand &middot; unseen during training, no fine-tuning</span></h3>
-    <!-- TODO: replace the slot with real-world videos. -->
-    <div class="slot banner"><span>Coming soon</span></div>
+    <div class="grid two real">
+      <figure>
+        <h4 class="task">Grasp and Lift Cup</h4>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/real/grasp_lift_cup.jpg">
+          <source src="assets/video/real/grasp_lift_cup.mp4" type="video/mp4">
+        </video>
+        <p class="speed">8&times; speed</p>
+      </figure>
+      <figure>
+        <h4 class="task">Push Tissue Box</h4>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/real/push_tissue_box.jpg">
+          <source src="assets/video/real/push_tissue_box.mp4" type="video/mp4">
+        </video>
+        <p class="speed">8&times; speed</p>
+      </figure>
+    </div>
   </section>
 
   <!-- Citation -->
