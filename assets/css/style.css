@@ -468,3 +468,15 @@ figcaption.note {
 
 .grid.real video { aspect-ratio: 16 / 9; }
 .speed { margin: 8px 0 0; text-align: center; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+
+/* Simulation players: one clip, its title above, thumbnails below */
+.picker { max-width: 720px; margin: 0 auto; }
+.picker .task b { font-weight: 500; }
+.picker video { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
+.picker .thumbs { gap: 8px; margin-top: 12px; align-items: stretch; }
+.picker .thumbs > :first-child { margin-left: auto; }
+.picker .thumbs > :last-child { margin-right: auto; }
+.picker .thumbs button { width: 84px; }
+.picker .thumbs .group { flex: none; display: flex; align-items: center; padding: 0 4px 0 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.picker .thumbs .group:first-child { padding-left: 0; }
+@media (max-width: 600px) { .picker .thumbs button { width: 64px; } }
