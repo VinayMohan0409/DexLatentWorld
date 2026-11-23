@@ -469,14 +469,32 @@ figcaption.note {
 .grid.real video { aspect-ratio: 16 / 9; }
 .speed { margin: 8px 0 0; text-align: center; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
 
-/* Simulation players: one clip, its title above, thumbnails below */
-.picker { max-width: 720px; margin: 0 auto; }
+/* Players: one clip with its title above; a rail of choices to its right (below on phones) */
+.picker { display: grid; grid-template-columns: minmax(0, 1fr) 256px; grid-template-areas: "title ." "video rail" "speed ."; gap: 0 20px; }
+.picker .task { grid-area: title; }
 .picker .task b { font-weight: 500; }
-.picker video { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
-.picker .thumbs { gap: 8px; margin-top: 12px; align-items: stretch; }
-.picker .thumbs > :first-child { margin-left: auto; }
-.picker .thumbs > :last-child { margin-right: auto; }
-.picker .thumbs button { width: 84px; }
-.picker .thumbs .group { flex: none; display: flex; align-items: center; padding: 0 4px 0 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
-.picker .thumbs .group:first-child { padding-left: 0; }
-@media (max-width: 600px) { .picker .thumbs button { width: 64px; } }
+.picker .task span:empty { display: none; }
+.picker video { grid-area: video; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+.picker[data-set="real"] video, .picker[data-set="real"] .rail img { aspect-ratio: 16 / 9; }
+.picker .speed { grid-area: speed; }
+.rail { grid-area: rail; contain: size; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--rule) transparent; padding-right: 4px; }
+.rail button { padding: 0; border: 2px solid transparent; border-radius: 6px; background: none; cursor: pointer; opacity: 0.7; transition: opacity 140ms ease, border-color 140ms ease, background 140ms ease; text-align: left; font: inherit; color: inherit; }
+.rail button:hover { opacity: 1; }
+.rail button.on { opacity: 1; border-color: var(--navy); }
+.rail img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: var(--tint); }
+.rail.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: start; }
+.rail.list { display: flex; flex-direction: column; gap: 10px; }
+.rail.list button { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center; padding: 4px; }
+.rail.list button.on { background: var(--tint); }
+.rail.list b { display: block; font-size: 15px; font-weight: 500; line-height: 1.3; }
+.rail.list small { display: block; margin-top: 2px; font-size: 10.5px; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; color: var(--ink-3); }
+@media (max-width: 760px) {
+  .picker { display: flex; flex-direction: column; }
+  .picker .task { order: 1; } .picker video { order: 2; } .picker .speed { order: 3; } .picker .rail { order: 4; }
+  .rail { contain: none; display: flex !important; flex-direction: row !important; gap: 8px; overflow-x: auto; overflow-y: hidden; margin-top: 10px; padding: 0 0 6px; }
+  .rail button { flex: none; width: 84px; }
+  .rail.list button { display: block; width: 116px; padding: 3px; }
+  .rail.list span { display: block; padding: 6px 2px 2px; }
+  .rail.list b { font-size: 13px; }
+  .rail.list small { font-size: 10px; }
+}

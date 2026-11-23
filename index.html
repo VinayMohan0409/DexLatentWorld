@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=16">
+  <link rel="stylesheet" href="assets/css/style.css?v=18">
 </head>
 <body>
 
@@ -164,11 +164,11 @@
 
     <h3 class="sub">Dexterous Manipulation <span>RoboCasa &middot; Franka arm with Allegro hand &middot; 2&times; speed</span></h3>
     <figure class="picker" data-set="dex">
-      <h4 class="task"><b>Reach</b><span>Episode 1 of 21</span></h4>
+      <h4 class="task"><b>Reach</b><span></span></h4>
       <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/dex_reach.jpg">
         <source src="assets/video/sim/dex_reach.mp4" type="video/mp4">
       </video>
-      <div class="thumbs" aria-label="Successful reach, grasp and place episodes"></div>
+      <div class="rail" aria-label="Successful reach, grasp and place episodes"></div>
     </figure>
 
     <h3 class="sub">Gripper Manipulation <span>RoboSuite &middot; Franka Panda, grippers unseen during training</span></h3>
@@ -177,7 +177,7 @@
       <video autoplay muted loop playsinline preload="metadata" poster="assets/img/sim/gripper_push_puck.jpg">
         <source src="assets/video/sim/gripper_push_puck.mp4" type="video/mp4">
       </video>
-      <div class="thumbs" aria-label="Gripper tasks"></div>
+      <div class="rail" aria-label="Gripper tasks"></div>
     </figure>
   </section>
 
@@ -185,22 +185,14 @@
   <section class="wrap wide">
     <h2 class="label">Real World</h2>
     <h3 class="sub">Dexterous Manipulation <span>UR7e arm with Sharpa Wave hand &middot; unseen during training, no fine-tuning</span></h3>
-    <div class="grid two real">
-      <figure>
-        <h4 class="task">Grasp and Lift Cup</h4>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/real/grasp_lift_cup.jpg">
-          <source src="assets/video/real/grasp_lift_cup.mp4" type="video/mp4">
-        </video>
-        <p class="speed">8&times; speed</p>
-      </figure>
-      <figure>
-        <h4 class="task">Push Tissue Box</h4>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/real/push_tissue_box.jpg">
-          <source src="assets/video/real/push_tissue_box.mp4" type="video/mp4">
-        </video>
-        <p class="speed">8&times; speed</p>
-      </figure>
-    </div>
+    <figure class="picker" data-set="real">
+      <h4 class="task"><b>Grasp and Lift Cup</b><span></span></h4>
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/video/real/grasp_lift_cup.jpg">
+        <source src="assets/video/real/grasp_lift_cup.mp4" type="video/mp4">
+      </video>
+      <div class="rail" aria-label="Real-world tasks"></div>
+      <p class="speed">8&times; speed</p>
+    </figure>
   </section>
 
   <!-- Citation -->
@@ -230,35 +222,39 @@
 <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="assets/js/explorer.js?v=6"></script>
 <script>
-  // Simulation players: one video per set; the thumbnails below switch the clip and the title. Dexterous: the featured
-  // clip of each task, then its other successful episodes (assets/video/sim/gallery); place keeps three episodes.
+  // Players (simulation and real world): one video; the rail beside it (below on phones) switches the clip and the title.
+  // Each entry: title, clips, subtitle, speed label. Dexterous: the featured clip of each task, then its other successful
+  // episodes (assets/video/sim/gallery); place keeps three episodes.
   var SIM = {
     dex: [['Reach', ['dex_reach', 'reach_131', 'reach_133', 'reach_146', 'reach_170', 'reach_322', 'reach_606', 'reach_665', 'reach_686', 'reach_739', 'reach_793', 'reach_814', 'reach_831', 'reach_907', 'reach_952', 'reach_1076', 'reach_1142', 'reach_1208', 'reach_1311', 'reach_1341', 'reach_1364']],
           ['Grasp', ['dex_grasp', 'grasp_118', 'grasp_131', 'grasp_133', 'grasp_665', 'grasp_686', 'grasp_731', 'grasp_769', 'grasp_793', 'grasp_870', 'grasp_907', 'grasp_952', 'grasp_1008', 'grasp_1076', 'grasp_1142', 'grasp_1207', 'grasp_1208', 'grasp_1311', 'grasp_1341']],
           ['Place', ['dex_place', 'place_118', 'place_1341']]],
     gripper: [['Reach + Push Puck', ['gripper_push_puck'], 'Wiping gripper'], ['Push Cube', ['gripper_push_cube'], 'Wiping gripper'],
-              ['Milk Transport', ['gripper_milk_transport'], 'Robotiq 140'], ['Cube Stacking', ['gripper_cube_stacking'], 'Robotiq 140']]
+              ['Milk Transport', ['gripper_milk_transport'], 'Robotiq 140'], ['Cube Stacking', ['gripper_cube_stacking'], 'Robotiq 140']],
+    real: [['Grasp and Lift Cup', ['real/grasp_lift_cup'], '', '8\u00d7 speed'], ['Push Tissue Box', ['real/push_tissue_box'], '', '8\u00d7 speed']]
   };
   function simClip(n) {
+    if (n.indexOf('real/') === 0) return { src: 'assets/video/' + n + '.mp4', img: 'assets/video/' + n + '.jpg' };
     return /^(dex|gripper)_/.test(n) ? { src: 'assets/video/sim/' + n + '.mp4', img: 'assets/img/sim/' + n + '.jpg' }
                                      : { src: 'assets/video/sim/gallery/' + n + '.mp4', img: 'assets/video/sim/gallery/' + n + '.jpg' };
   }
   document.querySelectorAll('.picker').forEach(function (fig) {
-    var groups = SIM[fig.dataset.set], row = fig.querySelector('.thumbs'), video = fig.querySelector('video');
-    var title = fig.querySelector('.task b'), sub = fig.querySelector('.task span'), many = groups.length < groups.reduce(function (a, g) { return a + g[1].length; }, 0);
+    var groups = SIM[fig.dataset.set], rail = fig.querySelector('.rail'), video = fig.querySelector('video'), speed = fig.querySelector('.speed');
+    var title = fig.querySelector('.task b'), sub = fig.querySelector('.task span');
+    var list = groups.every(function (g) { return g[1].length === 1; });      // few options: thumbnails with their names
+    rail.classList.add(list ? 'list' : 'tiles');
     groups.forEach(function (g) {
-      if (many) { var lab = document.createElement('span'); lab.className = 'group'; lab.textContent = g[0]; row.appendChild(lab); }
       g[1].forEach(function (n, i) {
         var it = simClip(n), b = document.createElement('button'); b.type = 'button';
-        b.setAttribute('aria-label', g[0] + (many ? ', episode ' + (i + 1) : ''));
-        if (!row.querySelector('button')) b.className = 'on';
-        b.innerHTML = '<img loading="lazy" alt="" src="' + it.img + '">';
+        b.setAttribute('aria-label', g[0] + (g[1].length > 1 ? ' ' + (i + 1) : ''));
+        if (!rail.querySelector('button')) b.className = 'on';
+        b.innerHTML = '<img loading="lazy" alt="" src="' + it.img + '">' + (list ? '<span><b>' + g[0] + '</b>' + (g[2] ? '<small>' + g[2] + '</small>' : '') + '</span>' : '');
         b.addEventListener('click', function () {
-          row.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
-          title.textContent = g[0]; sub.textContent = g[2] || 'Episode ' + (i + 1) + ' of ' + g[1].length;
+          rail.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+          title.textContent = g[0]; sub.textContent = g[2] || ''; if (speed) speed.textContent = g[3] || '';
           video.poster = it.img; video.src = it.src; video.load(); video.play().catch(function () {});
         });
-        row.appendChild(b);
+        rail.appendChild(b);
       });
     });
   });
