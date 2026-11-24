@@ -3,7 +3,7 @@
 Vinay Udit Mohan, Xuchuan Huang, Rolandos Alexandros Potamias  
 Imperial College London
 
-[Project page](https://vinaymohan0409.github.io/DexLatentWorld/) · Paper (coming soon)
+[Paper](https://arxiv.org/abs/2611.30907) · [Project page](https://vinaymohan0409.github.io/DexLatentWorld/)
 
 DexLatentWorld learns continuous latent actions from 3D scene particles of human manipulation retargeted to eight robot hands. A shared Point Transformer V3 encoder feeds an inverse dynamics model, which infers a 4 × 8 latent action from two frames, and a forward dynamics model, which predicts per-particle motion over five 0.2 s steps. A cross-embodiment contrastive loss aligns the latents of one transition performed by different hands. At deployment, CEM searches the latent space directly and robot targets are recovered from the predicted particles using known geometry and kinematics.
 
@@ -12,13 +12,14 @@ DexLatentWorld learns continuous latent actions from 3D scene particles of human
 If you find this work useful, please cite:
 
 ```bibtex
-@article{dexlatentworld2026,
-  title   = {DexLatentWorld: 3D Cross-Embodiment Latent Action World
-             Models for Zero-Shot Robotic Manipulation},
-  author  = {Mohan, Vinay Udit and Huang, Xuchuan and
-             Potamias, Rolandos Alexandros},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
-  year    = {2026}
+@misc{mohan2026dexlatentworld3dcrossembodimentlatent,
+      title={DexLatentWorld: 3D Cross-Embodiment Latent Action World Models for Zero-Shot Robotic Manipulation},
+      author={Vinay Udit Mohan and Xuchuan Huang and Rolandos Alexandros Potamias},
+      year={2026},
+      eprint={2611.30907},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2611.30907},
 }
 ```
 
